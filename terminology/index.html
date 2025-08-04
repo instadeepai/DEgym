@@ -1,0 +1,1420 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../degym_essentials/">
+      
+      
+        <link rel="next" href="../how_to_build_new_env/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Terminology - DEgym</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#degym-terminology" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DEgym" class="md-header__button md-logo" aria-label="DEgym" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DEgym
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Terminology
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/instadeepai/DEgym" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DEgym" class="md-nav__button md-logo" aria-label="DEgym" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DEgym
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/instadeepai/DEgym" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../degym_essentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DEgym Essentials: Design and Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Terminology
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terminology
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#episode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Episode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="State Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state" class="md-nav__link">
+    <span class="md-ellipsis">
+      State
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-state-is-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      What State is NOT!
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-do-we-organize-the-state-this-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why do we organize the State this way?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daestate" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAEState
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daeparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAEParameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nondaeparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      NonDAEParameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physicalparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      PhysicalParameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#action-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Action Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw Action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daeaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAEAction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actionconvertor" class="md-nav__link">
+    <span class="md-ellipsis">
+      ActionConvertor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actionregulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      ActionRegulator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actionpreprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      ActionPreprocessor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Processing Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preprocessor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statepreprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      StatePreprocessor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statepostprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      StatePostprocessor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extractors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extractors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extractors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observationextractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObservationExtractor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rewardextractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      RewardExtractor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminatedextractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      TerminatedExtractor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#truncatedextractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      TruncatedExtractor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infoextractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      InfoExtractor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemdynamicsfn" class="md-nav__link">
+    <span class="md-ellipsis">
+      SystemDynamicsFn
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integratorconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      IntegratorConfig
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#physicalparametersgenerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      PhysicalParametersGenerator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialstategenerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      InitialStateGenerator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Relationships
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how_to_build_new_env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A Comprehensive Tutorial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#episode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Episode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="State Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state" class="md-nav__link">
+    <span class="md-ellipsis">
+      State
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-state-is-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      What State is NOT!
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-do-we-organize-the-state-this-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why do we organize the State this way?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daestate" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAEState
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daeparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAEParameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nondaeparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      NonDAEParameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physicalparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      PhysicalParameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#action-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Action Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw Action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daeaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAEAction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actionconvertor" class="md-nav__link">
+    <span class="md-ellipsis">
+      ActionConvertor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actionregulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      ActionRegulator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actionpreprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      ActionPreprocessor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Processing Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preprocessor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statepreprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      StatePreprocessor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statepostprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      StatePostprocessor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extractors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extractors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extractors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observationextractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObservationExtractor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rewardextractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      RewardExtractor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminatedextractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      TerminatedExtractor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#truncatedextractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      TruncatedExtractor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infoextractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      InfoExtractor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemdynamicsfn" class="md-nav__link">
+    <span class="md-ellipsis">
+      SystemDynamicsFn
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integratorconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      IntegratorConfig
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#physicalparametersgenerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      PhysicalParametersGenerator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialstategenerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      InitialStateGenerator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Relationships
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="degym-terminology">DEgym Terminology</h1>
+<p>This document defines key terms and concepts used throughout the DEgym framework.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#environment">Environment</a></li>
+<li><a href="#state-components">State Components</a></li>
+<li><a href="#action-system">Action Components</a></li>
+<li><a href="#processing-pipeline">Processing Pipeline</a></li>
+<li><a href="#extractors">Extractors</a></li>
+<li><a href="#integration-components">Integration Components</a></li>
+<li><a href="#environment-components">Environment Components</a></li>
+</ul>
+<h2 id="environment">Environment</h2>
+<h3 id="environment_1"><strong>Environment</strong></h3>
+<p>The main interface between RL agents and reactor simulations. Inherits from Gymnasium's <code>Env</code> class and provides the standard RL interface (<code>step()</code>, <code>reset()</code>, etc.). The Environment coordinates all other components and maintains the internal simulation state.</p>
+<p><strong>Usage in DEgym</strong>: Acts as the central orchestrator that manages the complete simulation lifecycle, from initialization through episode execution.</p>
+<h3 id="episode"><strong>Episode</strong></h3>
+<p>A complete simulation run from initialization to termination/truncation. Each episode represents one training or evaluation trajectory for the RL agent.</p>
+<p><strong>Usage in DEgym</strong>: Episodes are bounded by <code>reset()</code> and end when terminated or truncated conditions are met.</p>
+<h2 id="state-components">State Components</h2>
+<h3 id="state"><strong>State</strong></h3>
+<p>The complete internal representation of the environment at any given time. Contains all information needed to fully describe the reactor system and continue simulation from that point.</p>
+<p><strong>Components</strong>:
+- <code>dae_state</code>: Variables that appear on the left-hand side of differential equations.
+- <code>dae_params</code>: Parameters used in the differential equations.
+- <code>non_dae_params</code>: Parameters not part of the differential equations but needed for simulation.</p>
+<p><strong>Usage in DEgym</strong>: The State is passed between components throughout the simulation pipeline and gets updated at each timestep.</p>
+<h4 id="what-state-is-not">What <code>State</code> is NOT!</h4>
+<p><em>State</em> is a common term used in different disciplines where it points to somewhat different concepts. The state here is <em>not</em>:
+- The state as in a point in phase space.
+- The state as in DAEState (e.g., the variables that are differentiated).</p>
+<h4 id="why-do-we-organize-the-state-this-way">Why do we organize the <code>State</code> this way?</h4>
+<p>We split the state values into these components so that we can easily retrieve and separate the state values required for implementing a reactor. This choice is motivated by the structure of the DAE and the way we implement the dynamics function.</p>
+<h3 id="daestate"><strong>DAEState</strong></h3>
+<p>Variables that appear on the left-hand side of differential equations (the variables being differentiated).</p>
+<p><strong>Examples</strong>: Concentrations (c_A, c_B), temperature (T), pressure (P).</p>
+<p><strong>Usage in DEgym</strong>: Updated by numerical integration and represents the evolving state of the system.</p>
+<h3 id="daeparameters"><strong>DAEParameters</strong></h3>
+<p>Parameters that appear in the differential equations but are not differentiated variables.</p>
+<p><strong>Examples</strong>: Flow rates (F), reactor volume (V), kinetic constants (k_0_a, k_0_b), activation energies (E_a), etc.</p>
+<p><strong>Usage in DEgym</strong>: Used by the integrator in differential equation calculations.</p>
+<h3 id="nondaeparameters"><strong>NonDAEParameters</strong></h3>
+<p>Parameters needed for simulation but not part of the differential equations.</p>
+<p><strong>Examples</strong>: Maximum heat input (q_max), episode length (max_timestep), current timestep, constraint limits.</p>
+<p><strong>Usage in DEgym</strong>: Used for simulation control, constraints, and episode management.</p>
+<h2 id="physicalparameters"><strong>PhysicalParameters</strong></h2>
+<p>High-level parameters that characterize a specific reactor configuration. Used to generate both DAEParameters and NonDAEParameters.</p>
+<blockquote>
+<p>[!NOTE]
+<code>PhysicalParameter</code> is not the config that is passed to <code>make_cstr_environment</code>.</p>
+</blockquote>
+<p><strong>Examples</strong>: Reactor geometry, parameters of operating constraints, reaction kinetics, feed composition.</p>
+<p><strong>Usage in DEgym</strong>: Generated at episode start and remain constant within an episode, but can vary between episodes for domain randomization.</p>
+<h2 id="action-components">Action Components</h2>
+<h3 id="raw-action"><strong>Raw Action</strong></h3>
+<p>The direct input passed to the environment's <code>step()</code> function by the RL agent. Can be scalars, numpy arrays, or other data types as defined by the action space.</p>
+<p><strong>Usage in DEgym</strong>: Raw actions are the starting point of the action processing pipeline.</p>
+<h3 id="action"><strong>Action</strong></h3>
+<p>An intermediate representation that gives semantic meaning to raw actions. Provides named fields and interpretable structure before conversion to physical control parameters.</p>
+<p><strong>Purpose</strong>:
+- Makes control logic interpretable and debuggable.
+- Bridges between RL agent outputs and physical system requirements.
+- Enables clear mapping from agent decisions to control intentions.</p>
+<p><strong>Usage in DEgym</strong>: Actions are created by wrapping raw inputs and then converted to DAEActions.</p>
+<h3 id="daeaction"><strong>DAEAction</strong></h3>
+<p>Control parameters as they appear directly in the differential equation system. These are domain-specific, physically meaningful control inputs that affect system dynamics.</p>
+<p><strong>Purpose</strong>:
+- Encapsulates control parameters for differential equation integration.
+- Ensures actions are in physically meaningful units and ranges.
+- Enables direct use in system dynamics calculations.</p>
+<p><strong>Usage in DEgym</strong>: DAEActions are passed to the integrator for numerical solving.</p>
+<h3 id="actionconvertor"><strong>ActionConvertor</strong></h3>
+<p>Transforms semantic Actions into DAEActions and vice versa. Handles scaling, unit conversion, and complex control logic transformations.</p>
+<p><strong>Usage in DEgym</strong>: Called during action preprocessing to bridge semantic and physical representations.</p>
+<h3 id="actionregulator"><strong>ActionRegulator</strong></h3>
+<p>Enforces constraints on DAEActions to ensure they remain within safe and feasible bounds.</p>
+<p><strong>Methods</strong>:
+- <code>is_legal()</code>: Checks if an action satisfies all constraints.
+- <code>convert_to_legal_action()</code>: Corrects constraint-violating actions.</p>
+<p><strong>Usage in DEgym</strong>: Applied after action conversion to ensure safe operation.</p>
+<h3 id="actionpreprocessor"><strong>ActionPreprocessor</strong></h3>
+<p>Orchestrates the complete action processing pipeline from raw inputs to validated DAEActions.</p>
+<p><strong>Pipeline</strong>:
+1. Wrap raw input into semantic Action.
+2. Convert Action to DAEAction using ActionConvertor.
+3. Apply constraints using ActionRegulator.
+4. Return validated DAEAction for integration.</p>
+<p><strong>Usage in DEgym</strong>: Called by the Environment during each <code>step()</code> to process agent actions.</p>
+<h2 id="processing-pipeline">Processing Pipeline</h2>
+<h3 id="preprocessor"><strong>Preprocessor</strong></h3>
+<p>Coordinates preprocessing of both state and action before numerical integration.</p>
+<p><strong>Usage in DEgym</strong>: Called at the beginning of each <code>step()</code> to prepare inputs for the integrator.</p>
+<h3 id="statepreprocessor"><strong>StatePreprocessor</strong></h3>
+<p>Processes the state before numerical integration. Can apply transformations, corrections, or preparation steps.</p>
+<p><strong>Usage in DEgym</strong>: Ensures the state is in the correct format and range for numerical solving.</p>
+<h3 id="statepostprocessor"><strong>StatePostprocessor</strong></h3>
+<p>Processes the state after numerical integration to handle corrections, constraints, or transformations.</p>
+<p><strong>Usage in DEgym</strong>: Ensures the integrated state satisfies physical constraints and is ready for extraction.</p>
+<h2 id="extractors">Extractors</h2>
+<p>Extractors convert internal state to the outputs required by the Gymnasium interface.</p>
+<h3 id="observationextractor"><strong>ObservationExtractor</strong></h3>
+<p>Converts environment state to observations that RL agents receive.</p>
+<p><strong>Components</strong>:
+- <code>observation_space</code>: Defines the structure and bounds of observations.
+- <code>extract_observation()</code>: Transforms state to agent-visible format.</p>
+<p><strong>Usage in DEgym</strong>: Called at the end of <code>step()</code> and <code>reset()</code> to provide agent observations.</p>
+<h3 id="rewardextractor"><strong>RewardExtractor</strong></h3>
+<p>Computes reward signals based on state transitions (state, action, next_state).</p>
+<p><strong>Purpose</strong>: Implements the optimization objective for the RL agent.</p>
+<p><strong>Usage in DEgym</strong>: Called during <code>step()</code> to provide learning signals to the agent.</p>
+<h3 id="terminatedextractor"><strong>TerminatedExtractor</strong></h3>
+<p>Determines if an episode should terminate due to natural ending conditions of the MDP.</p>
+<p><strong>Examples</strong>: Achieving objectives, reaching unsafe conditions, violating constraints.</p>
+<p><strong>Usage in DEgym</strong>: Called during <code>step()</code> to check for episode termination.</p>
+<h3 id="truncatedextractor"><strong>TruncatedExtractor</strong></h3>
+<p>Determines if an episode should truncate due to artificial stopping conditions.</p>
+<p><strong>Examples</strong>: Time limits, maximum timesteps, computational constraints.</p>
+<p><strong>Usage in DEgym</strong>: Called during <code>step()</code> to check for episode truncation.</p>
+<h3 id="infoextractor"><strong>InfoExtractor</strong></h3>
+<p>Extracts additional diagnostic information useful for monitoring and analysis.</p>
+<p><strong>Purpose</strong>: Provides information for debugging, logging, and analysis but not used by the agent for learning.</p>
+<p><strong>Usage in DEgym</strong>: Called during <code>step()</code> and <code>reset()</code> to provide diagnostic data.</p>
+<h2 id="integration-components">Integration Components</h2>
+<h3 id="integrator"><strong>Integrator</strong></h3>
+<p>Numerical solver that advances the DAE system over time. Handles the core mathematical simulation of reactor dynamics.</p>
+<p><strong>Types</strong>:
+- <code>ScipyIntegrator</code>: Uses scipy's ODE solvers.
+- <code>DiffeqpyIntegrator</code>: Uses DifferentialEquations.jl through Python interface.</p>
+<p><strong>Usage in DEgym</strong>: Called during <code>step()</code> to compute the next state given current state, parameters, and actions.</p>
+<h3 id="systemdynamicsfn"><strong>SystemDynamicsFn</strong></h3>
+<p>Implements the differential equations that describe the reactor dynamics.</p>
+<p><strong>Purpose</strong>: Defines the mathematical model f in: d/dt dae_state = f(dae_state, dae_params, dae_action).</p>
+<p><strong>Usage in DEgym</strong>: Used by the Integrator to evaluate derivatives during numerical solving.</p>
+<h3 id="integratorconfig"><strong>IntegratorConfig</strong></h3>
+<p>Configuration parameters for the numerical integrator.</p>
+<p><strong>Examples</strong>: Time step size, solver method, tolerance settings, maximum iterations.</p>
+<p><strong>Usage in DEgym</strong>: Defines how the numerical integration should be performed.</p>
+<h2 id="environment-components">Environment Components</h2>
+<h3 id="physicalparametersgenerator"><strong>PhysicalParametersGenerator</strong></h3>
+<p>Generates PhysicalParameters for each episode, enabling domain randomization.</p>
+<p><strong>Usage in DEgym</strong>: Called during environment initialization and reset to create diverse training scenarios.</p>
+<h3 id="initialstategenerator"><strong>InitialStateGenerator</strong></h3>
+<p>Creates initial State instances at the start of episodes using PhysicalParameters.</p>
+<p><strong>Process</strong>:
+1. Takes PhysicalParameters as input.
+2. Creates initial DAEState (concentrations, temperature, etc.).
+3. Generates DAEParameters for equations.
+4. Sets up NonDAEParameters for simulation control.
+5. Combines into complete State.</p>
+<p><strong>Usage in DEgym</strong>: Called during <code>reset()</code> to establish starting conditions for new episodes.</p>
+<h3 id="observation"><strong>Observation</strong></h3>
+<p>Data structure that represents what the RL agent can perceive from the environment.</p>
+<p><strong>Purpose</strong>: Encapsulates agent-visible information with conversion to numpy arrays.</p>
+<p><strong>Usage in DEgym</strong>: Created by ObservationExtractor and returned to agents through <code>step()</code> and <code>reset()</code>.</p>
+<hr />
+<h2 id="key-relationships">Key Relationships</h2>
+<ol>
+<li>
+<p><strong>Raw Action → Action → DAEAction</strong>: Action processing pipeline that transforms agent outputs to physical control parameters.</p>
+</li>
+<li>
+<p><strong>PhysicalParameters → State</strong>: Configuration-to-simulation mapping that establishes episode parameters.</p>
+</li>
+<li>
+<p><strong>State → Integrator → Next State</strong>: Core simulation loop that advances system dynamics.</p>
+</li>
+<li>
+<p><strong>State → Extractors → RL Outputs</strong>: Information extraction that converts internal state to agent-facing data.</p>
+</li>
+<li>
+<p><strong>Environment</strong>: Orchestrates all components and provides the standard RL interface.</p>
+</li>
+</ol>
+<p>This terminology forms the foundation for understanding how DEgym separates RL-specific logic (data flow, interfaces) from use-case-specific logic (what actions mean, how states are defined).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2263 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../terminology/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>A Comprehensive Tutorial - DEgym</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#creating-new-environments-with-degym-a-comprehensive-tutorial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DEgym" class="md-header__button md-logo" aria-label="DEgym" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DEgym
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A Comprehensive Tutorial
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/instadeepai/DEgym" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DEgym" class="md-nav__button md-logo" aria-label="DEgym" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DEgym
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/instadeepai/DEgym" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../degym_essentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DEgym Essentials: Design and Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terminology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terminology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    A Comprehensive Tutorial
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    A Comprehensive Tutorial
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#degym-architecture-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      DEgym Architecture Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-new-environment-complete-implementation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building a New Environment: Complete Implementation Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building a New Environment: Complete Implementation Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-order-recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Order Recommendation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-classes-with-abstract-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      List of classes with abstract methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-stirred-tank-reactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Stirred-Tank Reactor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuous Stirred-Tank Reactor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goal-and-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goal and Constraints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-identify-the-dae-formulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Identify the DAE Formulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Identify the DAE Formulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-identifying-dae_state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1.1: Identifying dae_state
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-identifying-dae_action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1.2: Identifying dae_action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-13-identifying-dae_params" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1.3: Identifying dae_params
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-define-the-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Define the State
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Define the State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-dae_state-daestate" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. dae_state: DAEState
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-dae_params-daeparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. dae_params: DAEParameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-non_dae_params-nondaeparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. non_dae_params: NonDAEParameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-24-state-preprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2.4: State Preprocessor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-defining-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Defining Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Defining Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-31-defining-daeaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.1: Defining DAEAction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-32-defining-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.2: Defining Action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-33-defining-the-converter-between-action-and-daeaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.3: Defining The Converter Between Action and DAEAction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-34-define-action-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.4: Define Action Regulator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-35-define-action-preprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.5: Define Action Preprocessor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-define-the-physical-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Define the Physical Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-define-the-dynamics-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Define the Dynamics Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Define the Dynamics Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-51a-defining-dynamical-equations-for-scipy-integrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5.1a: Defining Dynamical Equations for Scipy Integrator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-51b-defining-dynamical-equations-for-diffeqpy-integrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5.1b: Defining Dynamical Equations for DiffEqPy Integrator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-defining-generators-for-physicalparameters-and-initial-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Defining Generators for PhysicalParameters and Initial State
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6: Defining Generators for PhysicalParameters and Initial State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-61-defining-physicalparameters-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6.1: Defining PhysicalParameters Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-62-defining-initial-state-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6.2: Defining Initial State Generator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-defining-extractors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Defining Extractors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 7: Defining Extractors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-71-observation-extractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7.1: Observation Extractor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps-72-75-defining-extractors-for-reward-terminated-truncated-and-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps 7.2-7.5: Defining Extractors for Reward, Terminated, Truncated, and Info
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-create-your-environment-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Create Your Environment Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 8: Create Your Environment Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-81-calculation-of-time-span" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8.1: Calculation of time span
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-82-computing-next-daeparameters-and-nondaeparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8.2: Computing Next DAEParameters and NonDAEParameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-create-environment-factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9: Create Environment Factory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#degym-architecture-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      DEgym Architecture Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-new-environment-complete-implementation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building a New Environment: Complete Implementation Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building a New Environment: Complete Implementation Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-order-recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Order Recommendation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-classes-with-abstract-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      List of classes with abstract methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-stirred-tank-reactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Stirred-Tank Reactor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Continuous Stirred-Tank Reactor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goal-and-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goal and Constraints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-identify-the-dae-formulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Identify the DAE Formulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Identify the DAE Formulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-identifying-dae_state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1.1: Identifying dae_state
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-identifying-dae_action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1.2: Identifying dae_action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-13-identifying-dae_params" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1.3: Identifying dae_params
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-define-the-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Define the State
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Define the State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-dae_state-daestate" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. dae_state: DAEState
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-dae_params-daeparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. dae_params: DAEParameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-non_dae_params-nondaeparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. non_dae_params: NonDAEParameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-24-state-preprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2.4: State Preprocessor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-defining-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Defining Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Defining Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-31-defining-daeaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.1: Defining DAEAction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-32-defining-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.2: Defining Action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-33-defining-the-converter-between-action-and-daeaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.3: Defining The Converter Between Action and DAEAction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-34-define-action-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.4: Define Action Regulator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-35-define-action-preprocessor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3.5: Define Action Preprocessor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-define-the-physical-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Define the Physical Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-define-the-dynamics-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Define the Dynamics Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5: Define the Dynamics Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-51a-defining-dynamical-equations-for-scipy-integrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5.1a: Defining Dynamical Equations for Scipy Integrator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-51b-defining-dynamical-equations-for-diffeqpy-integrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5.1b: Defining Dynamical Equations for DiffEqPy Integrator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-defining-generators-for-physicalparameters-and-initial-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Defining Generators for PhysicalParameters and Initial State
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6: Defining Generators for PhysicalParameters and Initial State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-61-defining-physicalparameters-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6.1: Defining PhysicalParameters Generator
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-62-defining-initial-state-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6.2: Defining Initial State Generator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-defining-extractors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Defining Extractors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 7: Defining Extractors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-71-observation-extractor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7.1: Observation Extractor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps-72-75-defining-extractors-for-reward-terminated-truncated-and-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps 7.2-7.5: Defining Extractors for Reward, Terminated, Truncated, and Info
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-create-your-environment-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Create Your Environment Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 8: Create Your Environment Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-81-calculation-of-time-span" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8.1: Calculation of time span
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-82-computing-next-daeparameters-and-nondaeparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8.2: Computing Next DAEParameters and NonDAEParameters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-create-environment-factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9: Create Environment Factory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="creating-new-environments-with-degym-a-comprehensive-tutorial">Creating New Environments with DEgym: A Comprehensive Tutorial</h1>
+<p>This tutorial demonstrates how to create custom environments by subclassing from the DEgym framework's base <code>Environment</code> class. We'll use a <a href="https://en.wikipedia.org/wiki/Continuous_stirred-tank_reactor">Continuous Stirred-Tank Reactor (CSTR)</a> example as a practical demonstration of the complete process.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#creating-new-environments-with-degym-a-comprehensive-tutorial">Creating New Environments with DEgym: A Comprehensive Tutorial</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#degym-architecture-summary">DEgym Architecture Summary</a></li>
+<li><a href="#building-a-new-environment-complete-implementation-guide">Building a New Environment: Complete Implementation Guide</a><ul>
+<li><a href="#implementation-order-recommendation">Implementation Order Recommendation</a></li>
+<li><a href="#list-of-classes-with-abstract-methods">List of classes with abstract methods</a></li>
+</ul>
+</li>
+<li><a href="#continuous-stirred-tank-reactor">Continuous Stirred-Tank Reactor</a><ul>
+<li><a href="#goal-and-constraints">Goal and Constraints</a></li>
+</ul>
+</li>
+<li><a href="#step-by-step-implementation">Step-by-Step Implementation</a><ul>
+<li><a href="#step-1-identify-the-dae-formulation">Step 1: Identify the DAE Formulation</a></li>
+<li><a href="#step-11-identifying-dae_state">Step 1.1: Identifying <code>dae_state</code></a></li>
+<li><a href="#step-12-identifying-dae_action">Step 1.2: Identifying <code>dae_action</code></a></li>
+<li><a href="#step-13-identifying-dae_params">Step 1.3: Identifying <code>dae_params</code></a></li>
+<li><a href="#step-2-define-the-state">Step 2: Define the State</a></li>
+<li><a href="#21-dae_state-daestate">2.1. dae_state: <code>DAEState</code></a></li>
+<li><a href="#22-dae_params-daeparameters">2.2. dae_params: <code>DAEParameters</code></a></li>
+<li><a href="#23-non_dae_params-nondaeparameters">2.3. non_dae_params: <code>NonDAEParameters</code></a></li>
+<li><a href="#step-24-state-preprocessor">Step 2.4: State Preprocessor</a></li>
+<li><a href="#step-3-defining-actions">Step 3: Defining Actions</a></li>
+<li><a href="#step-31-defining-daeaction">Step 3.1: Defining <code>DAEAction</code></a></li>
+<li><a href="#step-32-defining-action">Step 3.2: Defining <code>Action</code></a></li>
+<li><a href="#step-33-defining-the-converter-between-action-and-daeaction">Step 3.3: Defining The Converter Between Action and DAEAction</a></li>
+<li><a href="#step-34-define-action-regulator">Step 3.4: Define Action Regulator</a></li>
+<li><a href="#step-35-define-action-preprocessor">Step 3.5: Define Action Preprocessor</a></li>
+<li><a href="#step-4-define-the-physical-parameters">Step 4: Define the Physical Parameters</a></li>
+<li><a href="#step-5-define-the-dynamics-function">Step 5: Define the Dynamics Function</a></li>
+<li><a href="#step-51a-defining-dynamical-equations-for-scipy-integrator">Step 5.1a: Defining Dynamical Equations for Scipy Integrator</a></li>
+<li><a href="#step-51b-defining-dynamical-equations-for-diffeqpy-integrator">Step 5.1b: Defining Dynamical Equations for DiffEqPy Integrator</a></li>
+<li><a href="#step-6-defining-generators-for-physicalparameters-and-initial-state">Step 6: Defining Generators for PhysicalParameters and Initial State</a></li>
+<li><a href="#step-61-defining-physicalparameters-generator">Step 6.1: Defining PhysicalParameters Generator</a></li>
+<li><a href="#step-62-defining-initial-state-generator">Step 6.2: Defining Initial State Generator</a></li>
+<li><a href="#step-7-defining-extractors">Step 7: Defining Extractors</a></li>
+<li><a href="#step-71-observation-extractor">Step 7.1: Observation Extractor</a></li>
+<li><a href="#steps-72-75-defining-extractors-for-reward-terminated-truncated-and-info">Steps 7.2-7.5: Defining Extractors for Reward, Terminated, Truncated, and Info</a></li>
+<li><a href="#step-8-create-your-environment-class">Step 8: Create Your Environment Class</a></li>
+<li><a href="#step-81-calculation-of-time-span">Step 8.1: Calculation of time span</a></li>
+<li><a href="#step-82-computing-next-daeparameters-and-nondaeparameters">Step 8.2: Computing Next DAEParameters and NonDAEParameters</a></li>
+<li><a href="#step-9-create-environment-factory">Step 9: Create Environment Factory</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>This tutorial demonstrates how to create custom environments using the DEgym framework, with a Continuous Stirred-Tank Reactor (CSTR) as a practical example.</p>
+<blockquote>
+<p>[!TIP]
+For a comprehensive overview of DEgym's core design principles, architecture, and philosophy, see <a href="../degym_essentials/">Inside DEgym: Core Design and Usage</a>.</p>
+</blockquote>
+<h2 id="degym-architecture-summary">DEgym Architecture Summary</h2>
+<p>DEgym separates environment logic into two categories:</p>
+<ul>
+<li><strong>RL-related logic</strong>: Common across all use cases (data flow, interfaces, <code>step</code> function structure).</li>
+<li><strong>Use-case-related logic</strong>: Specific implementations (what actions mean, how states are defined, etc.).</li>
+</ul>
+<p>The framework provides the RL-related infrastructure, while users implement only the use-case-specific components by inheriting from abstract classes. This approach enables both human developers and AI agents to create new environments systematically.</p>
+<p align="center">
+  <img src="images/diagrams.png" width="800">
+</p>
+
+<blockquote>
+<p>[!NOTE]
+For easier visualization, the above diagrams does not show the data classes which are passed between the components, nor it indicates where the information is saved.</p>
+</blockquote>
+<h2 id="building-a-new-environment-complete-implementation-guide">Building a New Environment: Complete Implementation Guide</h2>
+<p>To create a custom environment in DEgym, you need to subclass the <code>Environment</code> class and implement all the required abstract classes. The <code>Environment.__init__()</code> method requires the following components:</p>
+<pre><code class="language-python">def __init__(
+    self,
+    physical_parameters_generator: PhysicalParametersGenerator,
+    initial_state_generator: InitialStateGenerator,
+    integrator: Integrator,
+    action_preprocessor: ActionPreprocessor,
+    state_preprocessor: StatePreprocessor,
+    state_postprocessor: StatePostprocessor,
+    observation_extractor: ObservationExtractor,
+    reward_extractor: RewardExtractor,
+    terminated_extractor: TerminatedExtractor,
+    truncated_extractor: TruncatedExtractor,
+    info_extractor: InfoExtractor,
+    seed: int,
+) -&gt; None:
+</code></pre>
+<p>All of the above components (except the <code>Integrator</code> which is already implemented) are use-case dependent and need to be implemented. In the following we use walk through one such implementation for a continuous stirred tank reactor (CSTR). To achieve that we follow the following order.</p>
+<h3 id="implementation-order-recommendation">Implementation Order Recommendation</h3>
+<ul>
+<li><strong>Step 1: Identify the DAE Formulation</strong> - Identify <code>dae_state</code>, <code>dae_action</code>, <code>dae_params</code>.</li>
+<li><strong>Step 2: Define the State Components</strong> - Implement state-related classes.</li>
+<li><strong>Step 3: Define Actions</strong> - Implement action-related classes and processing.</li>
+<li><strong>Step 4: Define Physical Parameters</strong> - Implement parameter classes.</li>
+<li><strong>Step 5: Define the Dynamics Function</strong> - Implement system dynamics equations.</li>
+<li><strong>Step 6: Define Generators</strong> - Implement parameter and initial state generators.</li>
+<li><strong>Step 7: Define Extractors</strong> - Implement observation, reward, and termination extractors.</li>
+<li><strong>Step 8: Create Environment Class</strong> - Implement your custom environment.</li>
+<li><strong>Step 9: Create Environment Factory</strong> - Tie all components together with factory function.</li>
+</ul>
+<h3 id="list-of-classes-with-abstract-methods">List of classes with abstract methods</h3>
+<p>By the end of this tutorial all the abstract methods listed below are implemented.</p>
+<table>
+<thead>
+<tr>
+<th>Abstract Class</th>
+<th>Abstract Methods</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Environment</strong></td>
+<td><code>_calculate_time_span()</code>, <code>_return_next_dae_params()</code> , <code>_return_next_non_dae_params()</code></td>
+<td>Main environment interface</td>
+</tr>
+<tr>
+<td><strong>DAEState</strong></td>
+<td><code>to_np_array()</code>, <code>from_np_array()</code></td>
+<td>DAE state variables</td>
+</tr>
+<tr>
+<td><strong>DAEParameters</strong></td>
+<td><code>to_np_array()</code>, <code>from_np_array()</code></td>
+<td>DAE parameters</td>
+</tr>
+<tr>
+<td><strong>NonDAEParameters</strong></td>
+<td><code>to_np_array()</code>, <code>from_np_array()</code></td>
+<td>Non-DAE parameters</td>
+</tr>
+<tr>
+<td><strong>Action</strong></td>
+<td>(marker class)</td>
+<td>Semantic representation of raw step inputs</td>
+</tr>
+<tr>
+<td><strong>DAEAction</strong></td>
+<td><code>to_np_array()</code>, <code>from_np_array()</code></td>
+<td>Control variables in DAE system</td>
+</tr>
+<tr>
+<td><strong>ActionConvertor</strong></td>
+<td><code>_dae_action_to_action()</code>, <code>_action_to_dae_action()</code></td>
+<td>Convert between Action and DAE actions</td>
+</tr>
+<tr>
+<td><strong>ActionRegulator</strong></td>
+<td><code>is_legal()</code>, <code>convert_to_legal_action()</code></td>
+<td>Enforce action constraints</td>
+</tr>
+<tr>
+<td><strong>ActionPreprocessor</strong></td>
+<td><code>action_space</code> (property), <code>preprocess_action()</code></td>
+<td>Process actions before integration</td>
+</tr>
+<tr>
+<td><strong>StatePreprocessor</strong></td>
+<td><code>preprocess_state()</code></td>
+<td>Process state before integration</td>
+</tr>
+<tr>
+<td><strong>StatePostprocessor</strong></td>
+<td><code>postprocess_state()</code></td>
+<td>Process state after integration</td>
+</tr>
+<tr>
+<td><strong>SystemDynamicsFn</strong></td>
+<td><code>__call__()</code></td>
+<td>Implement system dynamics equations</td>
+</tr>
+<tr>
+<td><strong>PhysicalParameters</strong></td>
+<td>(marker class)</td>
+<td>Physical system parameters</td>
+</tr>
+<tr>
+<td><strong>PhysicalParametersGenerator</strong></td>
+<td><code>generate()</code></td>
+<td>Generate physical parameters</td>
+</tr>
+<tr>
+<td><strong>InitialStateGenerator</strong></td>
+<td><code>generate()</code></td>
+<td>Generate initial states</td>
+</tr>
+<tr>
+<td><strong>Observation</strong></td>
+<td><code>to_np_array()</code></td>
+<td>RL observation interface</td>
+</tr>
+<tr>
+<td><strong>ObservationExtractor</strong></td>
+<td><code>observation_space</code> (property), <code>extract_observation()</code></td>
+<td>Extract observations from state</td>
+</tr>
+<tr>
+<td><strong>RewardExtractor</strong></td>
+<td><code>extract_reward()</code></td>
+<td>Extract rewards from state transitions</td>
+</tr>
+<tr>
+<td><strong>TerminatedExtractor</strong></td>
+<td><code>extract_terminated()</code></td>
+<td>Determine episode termination</td>
+</tr>
+<tr>
+<td><strong>TruncatedExtractor</strong></td>
+<td><code>extract_truncated()</code></td>
+<td>Determine episode truncation</td>
+</tr>
+<tr>
+<td><strong>InfoExtractor</strong></td>
+<td><code>extract_info()</code></td>
+<td>Extract additional information</td>
+</tr>
+</tbody>
+</table>
+<h2 id="continuous-stirred-tank-reactor">Continuous Stirred-Tank Reactor</h2>
+<p>In this tutorial we focus on a reversible reaction between reactant $A$ and product $B$ under ideal CSTR conditions:</p>
+<p>$$\text{A} \overset{k_A}{\underset{k_B}{\rightleftharpoons}} \text{B}$$</p>
+<p align="center">
+  <img src="images/cstr_animation.gif">
+</p>
+
+<ul>
+<li>Mass balance for $A$:</li>
+</ul>
+<p>$$\frac{dc_A}{dt} = \frac{F}{V} (c_{A,0} - c_A) - k_A c_A + k_B c_B$$
+* Mass balance for $B$:
+$$\frac{dc_B}{dt} = \frac{F}{V} (-c_B) + k_A c_A - k_B c_B$$
+* Energy balance equation:
+$$\frac{dT}{dt} = \frac{F \rho C_p (T_0 - T) + \dot{Q} - \Delta H (k_A c_A - k_B c_B)}{\rho C_p V}$$</p>
+<p>where
+* $c_A$, $c_B$ are the concentrations of species A and B.
+* $F$ is the flow rate.
+* $V$ is the reactor volume.
+* $k_A$, $k_B$ are the reaction rates: $k_A = k_{0A} e^{-\frac{E_{aA}}{RT}}$ and $k_B = k_{0B} e^{-\frac{E_{aB}}{RT}}$ with $k_{0\mathrm{X}}$ and $E_{a\mathrm{X}}$ being the pre-exponential factor and activation energy of $\mathrm{X}$, and $R$ is the ideal gas constant. * $k_A$, $k_B$ are the reaction rates: $k_A = k_{0A} e^{-\frac{E_{aA}}{RT}}$ and $k_B = k_{0B} e^{-\frac{E_{aB}}{RT}}$ with $k_{0\mathrm{X}}$ and $E_{a\mathrm{X}}$ being the pre-exponential factor and activation energy of $\mathrm{X}$, and $R$ is the ideal gas constant. These rates determine the ratio between $A$ and $B$ at a given temperature.
+* $T$ is the reactor temperature.
+* $\dot{Q}$ is the heat input.
+* $\rho$ is the density of the liquid.
+* $C_p$ is the heat capacity.
+* $\Delta H$ is the heat of reaction.</p>
+<h3 id="goal-and-constraints">Goal and Constraints</h3>
+<p>The goal of the optimization is to maximize the production of species B by controlling the heat input $\dot{Q}$ to the reactor. This is subject to the following constraint: The heat input $\dot{Q}$ must be between 0 and $\dot{Q}_{\text{max}}$ (a positive constant).</p>
+<h2 id="step-by-step-implementation">Step-by-Step Implementation</h2>
+<p>Developing a new reactor environment involves these key steps:</p>
+<h3 id="step-1-identify-the-dae-formulation">Step 1: Identify the DAE Formulation</h3>
+<p>This is the most important step. One must first identify the ODEs/DAEs that govern the dynamics of the reactor and represent them in the following form:</p>
+<pre><code>d/dt dae_state = f(dae_state, dae_params, dae_action)
+</code></pre>
+<p>Where:
+- <strong><code>dae_state</code></strong>: The variables that appear on the left-hand side of the DAE (the variables that are differentiated).
+- <strong><code>dae_action</code></strong>: The actions, which are commonly the handles for controlling the process, as they appear in the DAE formulation.
+- <strong><code>dae_params</code></strong>: The parameters/variables that are part of the calculation of <code>f</code> which are not <code>dae_state</code> or <code>dae_action</code>.</p>
+<p>Let's do this for the CSTR example above. We start by writing the equations (where $k_A$ and $k_B$ are expressed explicitly):</p>
+<p>$$\frac{dc_A}{dt} = \frac{F}{V} (c_{A,0} - c_A) - k_{0A} e^{-\frac{E_{aA}}{RT}} c_A + k_B c_B$$</p>
+<p>$$\frac{dc_B}{dt} = \frac{F}{V} (-c_B) + k_{0A} e^{-\frac{E_{aA}}{RT}} c_A - k_{0B} e^{-\frac{E_{aB}}{RT}} c_B$$</p>
+<p>$$\frac{dT}{dt} = \frac{F \rho C_p (T_0 - T) + \dot{Q} - \Delta H (k_{0A} e^{-\frac{E_{aA}}{RT}} c_A - k_{0B} e^{-\frac{E_{aB}}{RT}} c_B)}{\rho C_p V}$$</p>
+<p>Now, the equations are ready to be used for identifying <code>dae_state</code>, <code>dae_action</code>, and <code>dae_params</code> in two steps. In each step:
+* based on simple rules, we identify a group of variables from the equations and assign them to one of the variables above; and
+* remove those identified variables from the equations.</p>
+<p>To make this process clearer, we depict the outcome of the different step process visually. All the variables that are identified at each step are highlighted in red (for their first appearance and in gray for further appearances), and then covered after removing them.</p>
+<h4 id="step-11-identifying-dae_state">Step 1.1: Identifying <code>dae_state</code></h4>
+<p><strong>Rule</strong>: All the variables appearing on the left-hand side of the equations, shown in red color (and highlighted in gray when they <em>also</em> appear on the right-hand side). In the case of ODEs, these are all the differentiated variables.</p>
+<p align="center">
+  <img src="images/dae_state.png" width="500">
+</p>
+
+<p>In the example used here, $c_A$, $c_B$ and $T$ form <code>dae_state</code>. To create the DAE state for CSTR (<code>CSTRDAEState</code>) we inherit from the <code>DAEState</code> class and implement the abstract methods (as shown below).</p>
+<blockquote>
+<p>[!TIP]
+This inheritance is a procedure that we follow throughout creating a new environment: we inherit from <code>degym</code> abstract classes and implement the abstract components based on the concrete use case.</p>
+</blockquote>
+<pre><code class="language-python">class CSTRDAEState(DAEState):
+    &quot;&quot;&quot;
+    DAEState class for CSTR.
+
+    Attributes:
+        c_a: Concentration of species A
+        c_b: Concentration of species B
+        T: Current temperature of system
+    &quot;&quot;&quot;
+    c_a: float
+    c_b: float
+    T: float
+
+    def to_np_array(self) -&gt; NDArray:
+        &quot;&quot;&quot;Concatenate all the attributes.&quot;&quot;&quot;
+        return np.asarray(
+            [
+                self.c_a,
+                self.c_b,
+                self.T,
+            ]
+        )
+
+    @classmethod
+    def from_np_array(cls, np_array: NDArray) -&gt; &quot;DAEState&quot;:
+        &quot;&quot;&quot;Return a new instance of the class from a numpy array.&quot;&quot;&quot;
+        return CSTRDAEState(
+            c_a=np_array[0],
+            c_b=np_array[1],
+            T=np_array[2],
+        )
+</code></pre>
+<p>The abstract methods of <code>DAEState</code> (i.e., <code>from_np_array</code> and <code>to_np_array</code>) are used in the flow of information, e.g., for passing an instance of <code>DAEState</code> to the integrator, it is first converted to a numpy array.</p>
+<p>For clarity, we remove these variables from the equations by covering them under a gray box.</p>
+<h4 id="step-12-identifying-dae_action">Step 1.2: Identifying <code>dae_action</code></h4>
+<p><strong>Rule</strong>: All the variables related to actions/control as they appear in the DAE formulation</p>
+<p align="center">
+  <img src="images/dae_action.png" width="500">
+</p>
+
+<pre><code class="language-python">class CSTRDAEAction(DAEAction):
+    &quot;&quot;&quot;
+    Action as it appears in the DAE system.
+
+    Attributes:
+        q_dot: Heat being applied to the system.
+    &quot;&quot;&quot;
+
+    q_dot: float
+
+    def to_np_array(self) -&gt; NDArray[np.floating]:
+        &quot;&quot;&quot;Return the action as a numpy array.&quot;&quot;&quot;
+        return np.array([self.q_dot])
+
+    @classmethod
+    def from_np_array(cls, np_array: NDArray[np.floating]) -&gt; &quot;CSTRDAEAction&quot;:
+        &quot;&quot;&quot;
+        Return a new instance of the class from a numpy array.
+
+        Args:
+            np_array: Numpy array with shape (1,).
+
+        Returns:
+            CSTRDAEAction: Instance of the class.
+
+        Raises:
+            ValueError: If the shape of the numpy array is not (1,).
+        &quot;&quot;&quot;
+        if np_array.shape != (1,):
+            raise ValueError(f&quot;Expected shape (1,) but got {np_array.shape}&quot;)
+        return CSTRDAEAction(q_dot=np_array[0])
+</code></pre>
+<p>Similar to variables identified in the previous step, we remove the current variables from the equations by covering them under a gray box.</p>
+<h4 id="step-13-identifying-dae_params">Step 1.3: Identifying <code>dae_params</code></h4>
+<p><strong>Rule</strong>: Any other remaining variables belong to parameters.</p>
+<p align="center">
+  <img src="images/dae_params.png" width="500">
+</p>
+
+<p>If, similar to the previous steps, we cover these variables, there would be no other variables left in the equations.</p>
+<p align="center">
+  <img src="images/dae_all.png" width="500">
+</p>
+
+<p>The concrete implementation of <code>CSTRDAEParameters</code> can be found in the corresponding file.</p>
+<blockquote>
+<p>[!IMPORTANT]
+- <code>dae_state</code> is <strong>not</strong> necessarily the same as the state of the reactor. It represents only the variables that appear on the left-hand side of the DAE.
+- <code>dae_params</code> are <strong>not</strong> necessarily the parameters needed to configure  the environment (those provided in YAML files), although there could be overlap.
+- The state of the environment is represented by the <code>State</code> class which includes <code>dae_state</code>, <code>dae_params</code>, and <code>non_dae_params</code> (as explained below).</p>
+</blockquote>
+<h3 id="step-2-define-the-state">Step 2: Define the State</h3>
+<p>After identifying the DAE, you need to implement a subclass of <code>State</code>. Let's clarify what <code>State</code> is and what it is not:</p>
+<p>The <code>State</code> class represents the "internal" state of the environment. This internal state includes <strong>all the variables/parameters required to fully describe the environment at any point in time</strong>. In other words, the <code>State</code> has enough information to set the environment to any step in an episode.</p>
+<p>More explicitly, the <code>State</code> has three parts:
+- <strong><code>dae_state: DAEState</code></strong>: Variables that appear on the left-hand side of the DAE (See above).
+- <strong><code>dae_params: DAEParameters</code></strong>: Parameters used in DAE calculations (See above).
+- <strong><code>non_dae_params: NonDAEParameters</code></strong>: Parameters that are <strong>not</strong> part of the differential equations.</p>
+<h4 id="21-dae_state-daestate">2.1. dae_state: <code>DAEState</code></h4>
+<p>Refer to <a href="#step-11-identifying-dae_state">Step 1.1</a>.</p>
+<h4 id="22-dae_params-daeparameters">2.2. dae_params: <code>DAEParameters</code></h4>
+<p>Refer to <a href="#step-12-identifying-dae_action">Step 1.2</a>.</p>
+<h4 id="23-non_dae_params-nondaeparameters">2.3. non_dae_params: <code>NonDAEParameters</code></h4>
+<p>The <code>non_dae_params</code> contains all the necessary parameters for configuring the environment which are not part of the DAE. For example:
+- Parameters used for configuring constraints (e.g., maximum value of a variable or action).
+- Parameters that appear indirectly in the DAE (e.g., variables used to calculate <code>dae_params</code>).</p>
+<p>To identify these parameters, go through the description of the problem, collect all the parameters, and then remove the ones appearing in the DAE.</p>
+<p>For the case of CSTR, the maximum heating capacity and the duration of one episode are such parameters:</p>
+<pre><code class="language-python">class CSTRNonDAEParameters(DAEParameters):
+    &quot;&quot;&quot;
+    Non-DAE parameters for the CSTR problem.
+
+    Attributes:
+        q_max: Maximum heat that can be applied at each timestep.
+        max_timestep: Number of minutes to run.
+        timestep: Current timestep.
+    &quot;&quot;&quot;
+
+    q_max: float
+    max_timestep: int  # Number of minutes to run
+    timestep: int = 0  # Current timestep
+
+    def to_np_array(self) -&gt; NDArray:
+        &quot;&quot;&quot;Concatenate all the attributes.&quot;&quot;&quot;
+        return np.asarray(
+            [
+                self.q_max,
+                self.max_timestep,
+                self.timestep,
+            ]
+        )
+
+    @classmethod
+    def from_np_array(cls, np_array: NDArray) -&gt; &quot;DAEParameters&quot;:
+        &quot;&quot;&quot;Return a new instance of the class from a numpy array.&quot;&quot;&quot;
+        return CSTRNonDAEParameters(
+            q_max=np_array[0],
+            max_timestep=np_array[1],
+            timestep=np_array[2],
+        )
+</code></pre>
+<h4 id="step-24-state-preprocessor">Step 2.4: State Preprocessor</h4>
+<p>Within the <code>step</code> function, as the first computation, the state and the action are preprocessed. The prefix <em>pre-</em> here refers to before integrating the dynamical equations.</p>
+<p>The preprocessing of the action is done by <code>ActionPreprocessor</code> (See "Defining Action Preprocessor" subsection below).</p>
+<p>The preprocessing of the state is an identity operation in the case of CSTR, i.e., the state is used without processing. Therefore, the implementation of the <code>CSTRStatePreprocessor</code> is simply subclassing <code>StatePreprocessor</code> and implementing its abstract method with an identity operation.</p>
+<pre><code class="language-python">class CSTRStatePreprocessor(StatePreprocessor):  # noqa: D101
+    def preprocess_state(self, state: CSTRState) -&gt; CSTRState:
+        &quot;&quot;&quot;No preprocessing of the state is needed.&quot;&quot;&quot;
+        return state
+</code></pre>
+<h3 id="step-3-defining-actions">Step 3: Defining Actions</h3>
+<p>In DEgym, we distinguish three <em>representations</em> in the action processing pipeline:
+1. <strong>Raw step input</strong>: The actual input passed to the <code>step()</code> function (e.g., numpy arrays, scalars, dicts).
+2. <strong>Action (semantic)</strong>: An intermediate representation that gives semantic meaning to raw inputs.
+3. <strong>DAEAction</strong>: The control variables as they appear in the differential equation formulation.</p>
+<p>The flow is: Raw Step Input → Action (semantic) → DAEAction (physical parameters)</p>
+<p>For example:
+- Raw input: <code>0.8</code> passed to <code>step()</code> (a float between 0 and 1).
+- Action: <code>CSTRAction(q_normalized=0.8)</code> (semantic meaning - normalized heat input).
+- DAEAction: <code>CSTRDAEAction(q=4000.0)</code> (physical heat input that appears in differential equations).</p>
+<h4 id="step-31-defining-daeaction">Step 3.1: Defining <code>DAEAction</code></h4>
+<p>To identify the DAE action, see <a href="#step-12-identifying-dae_action">Step 1.2</a>.</p>
+<h4 id="step-32-defining-action">Step 3.2: Defining <code>Action</code></h4>
+<p>The <code>Action</code> class provides semantic meaning to raw step inputs. It transforms raw numerical data into structured, interpretable representations before conversion to physical control parameters. In the case of CSTR, for example, we define this action to interpret a raw scalar as normalized heat input:</p>
+<pre><code class="language-python">@dataclass(frozen=True)
+class CSTRAction(Action):
+    &quot;&quot;&quot;
+    Action class for CSTR problem.
+
+    The agent selects a continuous action in the range [0, 1],
+    which relates to heat being applied in the range [0, Q_max].
+    &quot;&quot;&quot;
+    q_normalized: float  # Normalized heat input [0, 1]
+</code></pre>
+<p>Note that the <code>Action</code> class serves as an intermediate semantic layer that makes control logic more interpretable and debuggable, while <code>DAEAction</code> contains the actual control variables used in differential equations.</p>
+<h4 id="step-33-defining-the-converter-between-action-and-daeaction">Step 3.3: Defining The Converter Between Action and DAEAction</h4>
+<p>DEgym requires a converter between semantic actions and DAE control parameters. In the case of CSTR, this involves simple scaling from normalized to physical units. To write this converter, we inherit from the <code>ActionConvertor</code> class and implement the abstract methods:</p>
+<pre><code class="language-python">class CSTRActionConvertor(ActionConvertor):
+    &quot;&quot;&quot;
+    Action convertor for the CSTR.
+    &quot;&quot;&quot;
+    def _action_to_dae_action(self, action: CSTRAction, state: CSTRState) -&gt; CSTRDAEAction:
+        &quot;&quot;&quot;Multiply the RL action by q_max to denormalize.&quot;&quot;&quot;
+        q = action.q_normalized * state.non_dae_params.q_max
+        return CSTRDAEAction(q=q)
+
+    def _dae_action_to_action(self, dae_action: CSTRDAEAction, state: CSTRState) -&gt; CSTRAction:
+        &quot;&quot;&quot;Divide the RL action by q_max to normalize.&quot;&quot;&quot;
+        q_normalized = dae_action.q / state.non_dae_params.q_max
+        return CSTRAction(q_normalized=q_normalized)
+</code></pre>
+<h4 id="step-34-define-action-regulator">Step 3.4: Define Action Regulator</h4>
+<p>In case there are constraints on the actions, one can impose those constraints via <code>ActionRegulator</code>s. As these constraints are commonly expressed as business rules, in DEgym, the action regulators act on <code>DAEAction</code>. The abstract methods are <code>is_legal</code> and <code>convert_to_legal_action</code>. In this example, a valid (legal) action is a heat intensity between zero and the maximum allowed value (which is set in the config). The <code>convert_to_legal_action</code> method clips the actions to be in the valid range.</p>
+<pre><code class="language-python">class CSTRActionRegulator(ActionRegulator):
+    &quot;&quot;&quot;
+    Action regulator for the CSTR problem.
+    &quot;&quot;&quot;
+    def is_legal(
+        self,
+        dae_action: CSTRDAEAction,
+        state: CSTRState,
+    ) -&gt; bool:
+        &quot;&quot;&quot;The action is legal if the heat stays within the bounds.&quot;&quot;&quot;
+        is_legal: bool = 0 &lt;= dae_action.q &lt;= state.non_dae_params.q_max
+        return is_legal
+
+    def convert_to_legal_action(self, dae_action: CSTRDAEAction, state: CSTRState) -&gt; CSTRDAEAction:
+        &quot;&quot;&quot;If illegal action outside [0, q_max] then clamp it.&quot;&quot;&quot;
+        if dae_action.q &lt;= 0:
+            return CSTRDAEAction(q=0.0)
+        if dae_action.q &gt;= state.non_dae_params.q_max:
+            return CSTRDAEAction(q=state.non_dae_params.q_max)
+        return dae_action
+</code></pre>
+<h4 id="step-35-define-action-preprocessor">Step 3.5: Define Action Preprocessor</h4>
+<p><code>ActionPreprocessor</code> orchestrates the complete action processing pipeline that transforms raw step inputs into validated DAE control parameters. This is done by:
+1. <strong>Wrapping raw input</strong>: Converting raw step input (arrays, scalars) into semantic Action objects.
+2. <strong>Semantic conversion</strong>: Using <code>ActionConvertor</code> to transform Action to DAEAction.
+3. <strong>Constraint enforcement</strong>: Applying <code>ActionRegulator</code> to ensure DAEAction compliance.</p>
+<p>The abstract methods that need to be implemented are <code>action_space</code> (property) and <code>preprocess_action</code>.</p>
+<pre><code class="language-python">class CSTRActionPreprocessor(ActionPreprocessor):
+    &quot;&quot;&quot;Action preprocessor for the CSTR problem.&quot;&quot;&quot;
+    @property
+    def action_space(self) -&gt; gym.spaces.Box:
+        &quot;&quot;&quot;CSTR RL action space: normalized heat in [0, 1]&quot;&quot;&quot;
+        return gym.spaces.Box(low=0.0, high=1.0, shape=(1,))
+
+    def preprocess_action(self, action: float, state: CSTRState) -&gt; CSTRDAEAction:
+        &quot;&quot;&quot;
+        Preprocess a raw scalar action to validated DAEAction.
+
+        Args:
+            action: Raw scalar action from agent (normalized heat input).
+            state: Current state of the environment.
+
+        Returns:
+            CSTRDAEAction: Preprocessed action for integration.
+        &quot;&quot;&quot;
+        # Step 1: Wrap raw input into semantic Action
+        semantic_action = CSTRAction(q_normalized=action)
+
+        # Step 2: Convert to DAE parameters
+        dae_action = self.action_convertor.action_to_dae_action(semantic_action, state)
+
+        # Step 3: Apply constraints
+        if self.action_regulator.is_legal(dae_action, state):
+            return dae_action
+        else:
+            return self.action_regulator.convert_to_legal_action(dae_action, state)
+</code></pre>
+<h3 id="step-4-define-the-physical-parameters">Step 4: Define the Physical Parameters</h3>
+<p>Physical parameters are all the parameters needed to calculate <code>dae_params</code> and <code>non_dae_params</code>. These are the parameters generated during the initialization of the environment (or its reset).</p>
+<blockquote>
+<p>[!NOTE]
+The set of physical parameters could have overlap with <code>dae_params</code> and <code>non_dae_params</code>, but they are not necessarily the same. For example, a categorical parameter could be the make/model of the reactor, from which volume is determined (and used in <code>dae_params</code> as $V$ appears in the dynamical equations). In the current example, this is not the case. The physical parameters are the result of the union of <code>dae_params</code> and <code>non_dae_params</code>.</p>
+</blockquote>
+<pre><code class="language-python">@dataclass(frozen=True)
+class CSTRPhysicalParameters(PhysicalParameters):
+    &quot;&quot;&quot;
+    Physical constants for the CSTR problem.
+
+    Attributes:
+        p: liquid density.
+        c_a_0: Initial concentration of A.
+        c_p: Heat capacity of the tank.
+        e_a: Activation energy of A -&gt; B.
+        e_b : Activation energy of B -&gt; A.
+        F: Flow rate in and out of the reactor.
+        dh: Heat of the reaction.
+        k_0_a: Pre-exponential factor for A -&gt; B.
+        k_0_b: Pre-exponential factor for B -&gt; A.
+        R: Ideal gas constant.
+        T_0: Initial temperature in the reactor.
+        V: Tank volume.
+        q_max: Max heat that can be applied at each timestep.
+        max_timestep: Number of minutes to run.
+    &quot;&quot;&quot;
+    p: float = 780  # kg/m³
+    c_a_0: float = 0.3  # kmol/m³
+    c_p: float = 3.25  # kJ/kgK
+    e_a: float = 41570  # kJ / kmol
+    e_b: float = 45727  # kJ / kmol
+    F: float = 0.0025  # m³/min
+    dh: float = 4157  # kJ / kmol
+    k_0_a: float = 50_000  # min-1
+    k_0_b: float = 100_000  # min-1
+    R: float = 8.314  # kJ / kmol −K
+    T_0: float = 300  # K
+    V: float = 0.2  # m³
+    q_max: float = 5000  # kJ/min
+    max_timestep: int = 600 # mins
+
+    def to_np_array(self) -&gt; NDArray[np.floating]:
+        &quot;&quot;&quot;Concatenate all the attributes.&quot;&quot;&quot;
+        return np.asarray(list(asdict(self).values()))
+</code></pre>
+<p>The numerical values of the above physical parameters are derived from "Dynamic Economic Optimization of a Continuously Stirred Tank Reactor Using Reinforcement Learning," by D. Machalek, et al. 2020.</p>
+<h3 id="step-5-define-the-dynamics-function">Step 5: Define the Dynamics Function</h3>
+<p>The dynamics function calculates the derivative of the <code>dae_state</code> given the current state of the environment. This function is used in the integration of the DAE and should be implemented as a subclass of <code>DiffeqpySystemDynamicsFn</code> or <code>ScipySystemDynamicsFn</code>.</p>
+<p>Note that this is the most manual step in the process and the most error-prone. One must be very careful in implementing the <code>__call__</code> function.</p>
+<p>For both cases, one should implement the <code>__call__</code> function, in which the dynamical equations are implemented. The signature depends on the integrator (where signature variables are explained below):</p>
+<p><strong>For ScipySystemDynamicsFn:</strong></p>
+<pre><code class="language-python">def __call__(
+    state: NDArray[np.floating],
+    parameters: NDArray[np.floating],
+    action: NDArray[np.floating],
+    time: float,
+    ) -&gt; NDArray[np.floating]:
+</code></pre>
+<p><strong>For DiffeqpySystemDynamicsFn:</strong></p>
+<pre><code class="language-python">def __call__(
+    derivative: list[float],
+    input_values: NDArray[np.floating],
+    parameters: NDArray[np.floating],
+    time: NDArray[np.floating],
+) -&gt; None:
+</code></pre>
+<h4 id="step-51a-defining-dynamical-equations-for-scipy-integrator">Step 5.1a: Defining Dynamical Equations for Scipy Integrator</h4>
+<p>For the <code>scipy</code> integrator, the arguments to the <code>__call__</code> function are:
+* <code>state</code> which corresponds exactly to <code>DAEState</code>.
+* <code>parameters</code> which corresponds exactly to <code>DAEParameters</code>.
+* <code>action</code> which is exactly <code>DAEAction</code>; and
+* <code>time</code> which is the time as it appears in the dynamical equations (in the CSTR case there is no explicit time dependence).</p>
+<p>These arguments are used to return the left-hand side of the dynamical equations, i.e., <code>d DAEState / dt</code> as a numpy array.</p>
+<blockquote>
+<p>[!NOTE]
+This split of arguments is in line with the logic of how parameters are grouped together in DEgym. To showcase that, in the following implementation, these arguments are converted to their counterpart DEgym classes at the beginning of the <code>__call__</code> function.</p>
+</blockquote>
+<pre><code class="language-python">class CSTRScipySystemDynamics(ScipySystemDynamicsFn):  # noqa: D101
+    @staticmethod
+    def __call__(
+        state: NDArray[np.floating],
+        parameters: NDArray[np.floating],
+        action: NDArray[np.floating],
+        time: float,
+    ) -&gt; NDArray[np.floating]:
+        &quot;&quot;&quot;
+        Implement the dynamical model of CSTR.
+
+        Differential equations:
+            (1): dc_a/dt = (F / V) * (c_a0 − c_a)− k_a c_a  + k_b * c_b
+            (2): dc_b/dt = (F / V) * (− c_b) + k_a c_a  - k_b * c_b
+            (3): dT/dt = (F * p * c_p (T_0 - T) + q - dh * V
+                            * (k_a * c_a - k_b * c_b)) / (p * c_p * V)
+
+        With:
+            k_a = k_0_a * exp(-e_a / rt)
+            k_b = k_0_b * exp(-e_b / rt)
+        &quot;&quot;&quot;
+        s = CSTRDAEState.from_np_array(state)  # dae state
+        pm = CSTRDAEParameters.from_np_array(parameters)  # dae parameters
+        a = CSTRDAEAction.from_np_array(action)  # dae action
+
+        k_a = reaction_rate(k_0=pm.k_0_a, e=pm.E_a_A, r=pm.R, t=s.T)
+        k_b = reaction_rate(k_0=pm.k_0_b, e=pm.E_a_B, r=pm.R, t=s.T)
+
+        # Differential equations.
+        delta_c_a = (pm.F / pm.V) * (pm.c_a_0 - s.c_a) - (k_a * s.c_a) + (k_b * s.c_b)  # d[A]/dt
+        delta_c_b = (pm.F / pm.V) * (-s.c_b) + (k_a * s.c_a) - (k_b * s.c_b)  # d[B]/dt
+        delta_T = (
+            pm.F * pm.p * pm.c_p * (pm.T_0 - s.T) + a.q - pm.dh * pm.V * (k_a * s.c_a - k_b * s.c_b)
+        ) / (pm.p * pm.c_p * pm.V)  # dT/dt
+
+        return np.array([delta_c_a, delta_c_b, delta_T])
+</code></pre>
+<h4 id="step-51b-defining-dynamical-equations-for-diffeqpy-integrator">Step 5.1b: Defining Dynamical Equations for DiffEqPy Integrator</h4>
+<p>Unlike the scipy integrator, DiffEqPy requires a less straightforward signature for the <code>__call__</code> function. The arguments are:
+* <code>derivative</code>: a list of floats which is <code>d DAEState / dt</code>. Note that this argument is set <em>in place</em>, i.e., at the end of the computation of time derivatives, the obtained values are placed in this list.
+* <code>input_values</code> corresponds exactly to variables in <code>DAEState</code>.
+* <code>parameters</code> contains <em>both</em> variables in <code>DAEParameters</code> and <code>DAEAction</code>, where the parameters appear first and the actions appear last.
+* <code>time</code> is time as it explicitly appears in the dynamical equations (in the CSTR example there is no explicit time dependence).</p>
+<blockquote>
+<p>[!NOTE]
+One should be very careful about how to extract <code>DAEParameters</code> and <code>DAEAction</code> from <code>parameters</code>. For example, if the action space is changed, this split should be explicitly changed.</p>
+</blockquote>
+<pre><code class="language-python">class CSTRDiffeqpySystemDynamics(DiffeqpySystemDynamicsFn):  # noqa: D101
+    # state has 3 values: {c_a, c_b, t}
+    # We have differential equations for all 3 values =&gt; Identity matrix
+    mass_matrix = np.eye(3, 3)
+
+    @staticmethod
+    def __call__(
+        derivative: list[float],
+        input_values: NDArray[np.floating],
+        parameters: NDArray[np.floating],
+        time: NDArray[np.floating],
+    ) -&gt; None:
+        &quot;&quot;&quot;
+        Implement the dynamical model of CSTR.
+
+        Differential equations:
+            (1): dc_a/dt = (F / V) * (c_a0 − c_a)− k_a c_a  + k_b * c_b
+            (2): dc_b/dt = (F / V) * (− c_b) + k_a c_a  - k_b * c_b
+            (3): dT/dt = (F * p * c_p (T_0 - T) + q - dh * V
+                            * (k_a * c_a - k_b * c_b)) / (p * c_p * V)
+
+        With:
+            k_a = k_0_a * exp(-e_a / rt)
+            k_b = k_0_b * exp(-e_b / rt)
+        &quot;&quot;&quot;
+        s = CSTRDAEState.from_np_array(input_values)  # dae state
+        pm = CSTRDAEParameters.from_np_array(parameters[:-1])  # dae parameters
+        a = CSTRDAEAction.from_np_array(parameters[-1:])  # dae action
+
+        k_a = reaction_rate(k_0=pm.k_0_a, e=pm.E_a_A, r=pm.R, t=s.T)
+        k_b = reaction_rate(k_0=pm.k_0_b, e=pm.E_a_B, r=pm.R, t=s.T)
+
+        # Differential equations.
+        derivative[0] = (
+            (pm.F / pm.V) * (pm.c_a_0 - s.c_a) - (k_a * s.c_a) + (k_b * s.c_b)
+        )  # d[A]/dt
+        derivative[1] = (pm.F / pm.V) * (-s.c_b) + (k_a * s.c_a) - (k_b * s.c_b)  # d[B]/dt
+        derivative[2] = (
+            pm.F * pm.p * pm.c_p * (pm.T_0 - s.T) + a.q - pm.dh * pm.V * (k_a * s.c_a - k_b * s.c_b)
+        ) / (pm.p * pm.c_p * pm.V)  # dT/dt
+
+</code></pre>
+<h3 id="step-6-defining-generators-for-physicalparameters-and-initial-state">Step 6: Defining Generators for PhysicalParameters and Initial State</h3>
+<p>DEgym requires two generators for instantiation and reset:
+* A subclass of PhysicalParametersGenerator which generates an instance of <code>PhysicalParameters</code>. Having a generator instead of just using an instance of <code>PhysicalParameters</code> enables us to create (random) variation in parameters of the environment. For example, if a use case requires training an agent for controlling a reactor where the $\Delta H$ is coming from a random distribution, one can realize that with the generator.</p>
+<ul>
+<li>A subclass of <code>InitialStateGenerator</code> which generates an instance of <code>State</code> as the initial state of the environment. Similar to the physical parameter generator, a generator can set the environment in different initial states every time an instance of the environment is created or reset.</li>
+</ul>
+<h4 id="step-61-defining-physicalparameters-generator">Step 6.1: Defining PhysicalParameters Generator</h4>
+<p>For the CSTR use case, similar to any concrete reactor, we create a subclass of <code>PhysicalParametersGenerator</code> and implement its abstract method <code>generate</code> with the following signature:</p>
+<pre><code class="language-python">class PhysicalParametersGenerator(ABC):
+    &quot;&quot;&quot;Generator for physical parameters of the system.&quot;&quot;&quot;
+
+    @abstractmethod
+    def generate(self, rng: np.random.Generator) -&gt; PhysicalParameters:
+        &quot;&quot;&quot;Generate a set of physical parameters describing an instantiation of the system.&quot;&quot;&quot;
+</code></pre>
+<blockquote>
+<p>[!NOTE]
+The logic with which the physical parameters are generated is irrelevant for DEgym. For example, in the CSTR case we implemented <code>CSTRPhysicalParametersGenerator</code> which returns an instance of <code>CSTRPhysicalParameters</code> where some of the parameters are generated randomly and some have fixed values. Whether a parameter has fixed values or it is derived from a distribution is configured by a config.</p>
+</blockquote>
+<p>For details of the implementation refer to <code>physical_parameters.py</code> in <code>degym_tutorial/</code>.</p>
+<h4 id="step-62-defining-initial-state-generator">Step 6.2: Defining Initial State Generator</h4>
+<p>To develop an initial state generator, one can subclass <code>InitialStateGenerator</code> and implement its only abstract method which is <code>generate</code>. Note that to generate an initial state one requires knowing the physical parameters of the system. Therefore, an instance of <code>PhysicalParameters</code> (or <code>CSTRPhysicalParameters</code> in the case of the CSTR example) is passed to the <code>generate</code> function.</p>
+<pre><code class="language-python">class CSTRInitialStateGenerator(InitialStateGenerator):
+    &quot;&quot;&quot;InitialStateGenerator class for the CSTR problem.&quot;&quot;&quot;
+
+    def generate(self, physical_parameters: CSTRPhysicalParameters) -&gt; CSTRState:
+        &quot;&quot;&quot;Return the initial state given a set of physical parameters for the system.&quot;&quot;&quot;
+        dae_state = CSTRDAEState(
+            c_a=physical_parameters.c_a_0,
+            c_b=0.0,
+            T=physical_parameters.T_0,
+        )
+
+        dae_params = CSTRDAEParameters(
+            F=physical_parameters.F,
+            V=physical_parameters.V,
+            c_a_0=physical_parameters.c_a_0,
+            p=physical_parameters.p,
+            c_p=physical_parameters.c_p,
+            T_0=physical_parameters.T_0,
+            dh=physical_parameters.dh,
+            k_0_a=physical_parameters.k_0_a,
+            k_0_b=physical_parameters.k_0_b,
+            E_a_A=physical_parameters.e_a,
+            E_a_B=physical_parameters.e_b,
+            R=physical_parameters.R,
+        )
+        non_dae_params = CSTRNonDAEParameters(
+            q_max=physical_parameters.q_max,
+            max_timestep=physical_parameters.max_timestep,
+            timestep=0,
+        )
+        return CSTRState(dae_state=dae_state, dae_params=dae_params, non_dae_params=non_dae_params)
+
+</code></pre>
+<h3 id="step-7-defining-extractors">Step 7: Defining Extractors</h3>
+<p>Extractors convert the internal state to the return values of the <code>step</code> function dictated by Gymnasium's convention:
+(i) observation, (ii) reward, (iii) terminated, (iv) truncated, (v) info. In the following, we explain the observation extractor in detail and the other extractors are briefly described.</p>
+<blockquote>
+<p>[!NOTE]
+These extractors are called at the very end of the <code>step</code> function.</p>
+</blockquote>
+<h4 id="step-71-observation-extractor">Step 7.1: Observation Extractor</h4>
+<p>The observation extractor converts the internal state to the observation that the RL agent receives. To implement this extractor:
+* first we need to implement a class for observation by subclassing the <code>Observation</code> class and implementing its abstract method, i.e. <code>to_np_array</code>; and then
+* subclass the <code>ObservationExtractor</code> class and implement its abstract method and property, i.e., <code>extract_observation</code> and <code>observation_space</code>.</p>
+<pre><code class="language-python">@dataclass(frozen=True)
+class CSTRObservation(Observation):
+    &quot;&quot;&quot;Observation returned to the RL agent for CSTR.&quot;&quot;&quot;
+    normalized_c_a: float  # Normalized concentration of A
+    normalized_c_b: float  # Normalized concentration of B
+    normalized_temperature: float  # Normalized temperature
+
+    def to_np_array(self) -&gt; NDArray[np.floating]:
+        &quot;&quot;&quot;Convert observation to numpy array.&quot;&quot;&quot;
+        return np.array([self.normalized_c_a, self.normalized_c_b, self.normalized_temperature])
+
+class CSTRObservationExtractor(ObservationExtractor):
+    &quot;&quot;&quot;Extract observations from CSTR state.&quot;&quot;&quot;
+
+    @property
+    def observation_space(self) -&gt; gym.spaces.Box:
+        &quot;&quot;&quot;Define the observation space for RL agents.&quot;&quot;&quot;
+        return gym.spaces.Box(
+            low=np.array([0.0, 0.0, 0.0]),
+            high=np.array([1.0, 1.0, 2.0]),
+            shape=(3,),
+            dtype=np.float32
+        )
+
+    def extract_observation(self, next_state: CSTRState) -&gt; CSTRObservation:
+        &quot;&quot;&quot;Convert state to observation by normalizing values.&quot;&quot;&quot;
+        # Normalize concentrations by initial concentration
+        c_a_normalized = next_state.dae_state.c_a / next_state.dae_params.c_a_0
+        c_b_normalized = next_state.dae_state.c_b / next_state.dae_params.c_a_0
+
+        # Normalize temperature by initial temperature
+        t_normalized = next_state.dae_state.T / next_state.dae_params.T_0
+
+        return CSTRObservation(
+            normalized_c_a=c_a_normalized,
+            normalized_c_b=c_b_normalized,
+            normalized_temperature=t_normalized
+        )
+</code></pre>
+<blockquote>
+<p>[!NOTE]
+* The observation depends only on <code>next_state</code>.
+* <code>next_state</code> here refers to the state of the environment <strong>after</strong> the postprocessing (which comes after the application of action).</p>
+</blockquote>
+<h4 id="steps-72-75-defining-extractors-for-reward-terminated-truncated-and-info">Steps 7.2-7.5: Defining Extractors for Reward, Terminated, Truncated, and Info</h4>
+<p>All the remaining extractors:
+* are simpler than the observation extractor as their return types are basic Python types, i.e., <code>float</code>, <code>bool</code>, and <code>dict</code>; and
+* they share the same list of arguments: <code>self, state: State, action: DAEAction, next_state: State</code>.</p>
+<p>In their argument list:
+* <code>state</code> is the <code>State</code> at the beginning of the <code>step</code> (i.e., before application of action).
+* <code>action</code> is the action taken in the step.
+* <code>next_state</code>: The state at the end of the <code>step</code> <strong>after</strong> the postprocessing (which comes after the application of action).</p>
+<p>As an example here we show <code>CSTRRewardExtractor</code>:</p>
+<pre><code class="language-python">class CSTRRewardExtractor(RewardExtractor):  # noqa: D101
+    def extract_reward(
+        self, state: CSTRState, action: CSTRDAEAction, next_state: CSTRState
+    ) -&gt; float:
+        &quot;&quot;&quot;Immediate reward is the concentration of the product, c_B.&quot;&quot;&quot;
+        return float(next_state.dae_state.c_b)
+</code></pre>
+<h3 id="step-8-create-your-environment-class">Step 8: Create Your Environment Class</h3>
+<p>In the <code>Environment</code> class of DEgym, there are also two abstract methods that should be implemented:
+* <code>_calculate_time_span</code>: where one calculates the time span covered by the <code>step</code> function. This function is called inside the step function, before the integration. It is used for setting the beginning and end of the time integration for the current call to <code>step</code>. Note that this function enables us to have variable time spans across calls to the step function, which is a relevant feature for chemical/biological reactors.</p>
+<ul>
+<li><code>_return_next_dae_params</code>: updates and returns the <code>dae_params</code>.</li>
+<li><code>_return_next_non_dae_params</code>: updates and returns the <code>non_dae_params</code>.</li>
+</ul>
+<blockquote>
+<p>[!NOTE]
+Non-DAE Parameters can change with time. For example, the cost of energy which does not appear in chemical reactions might change with time; it has its own dynamics which require an update during the step for the given time span.</p>
+</blockquote>
+<h4 id="step-81-calculation-of-time-span">Step 8.1: Calculation of time span</h4>
+<p>In the CSTR environment we assume a fixed constant time span across all steps. In this case, the logic of the time span computation is straightforward:</p>
+<pre><code class="language-python">class CSTREnvironment(Environment):
+    &quot;&quot;&quot;
+    Environment for the CSTR problem.
+    &quot;&quot;&quot;
+    def _calculate_time_span(self) -&gt; TimeSpan:
+        &quot;&quot;&quot;Calculate the time span of step function.&quot;&quot;&quot;
+        time_span = TimeSpan(
+            start_time=self._current_time,
+            end_time=self._current_time + self._integrator.config.action_duration,
+        )
+        return time_span
+</code></pre>
+<h4 id="step-82-computing-next-daeparameters-and-nondaeparameters">Step 8.2: Computing Next DAEParameters and NonDAEParameters</h4>
+<p>These methods allow us to have a time dependence for <code>dae_params</code> as well as <code>non_dae_params</code>.</p>
+<pre><code class="language-python">    def _return_next_dae_params(self, state: CSTRState) -&gt; CSTRDAEParameters:
+        &quot;&quot;&quot;Return the current DAE parameters as the next DAE parameters.&quot;&quot;&quot;
+        return state.dae_params
+
+    def _return_next_non_dae_params(self, state: CSTRState) -&gt; CSTRNonDAEParameters:
+        &quot;&quot;&quot;Return the next non-DAE parameters by incrementing the timestep.&quot;&quot;&quot;
+        state.non_dae_params.timestep += 1
+        return state.non_dae_params
+</code></pre>
+<h3 id="step-9-create-environment-factory">Step 9: Create Environment Factory</h3>
+<p>We are almost done! Here is a factory function to instantiate your CSTR environment from a config!</p>
+<pre><code class="language-python">def make_cstr_environment(env_config: dict) -&gt; CSTREnvironment:  # pylint: disable=too-many-locals
+    &quot;&quot;&quot;
+    Instantiate and return a CSTR environment.
+
+    Args:
+        a dict which includes all the configs of the environment.
+
+    Returns:
+        an environment.
+    &quot;&quot;&quot;
+    physical_parameter_generator_config = CSTRPhysicalParametersGeneratorConfig(
+        **env_config[&quot;physical_parameters&quot;]
+    )
+    physical_parameters_generator = CSTRPhysicalParametersGenerator(
+        config=physical_parameter_generator_config
+    )
+
+    # Prepare preprocessing classes
+    action_regulator = CSTRActionRegulator()
+    action_convertor = CSTRActionConvertor()
+    action_preprocessor = CSTRActionPreprocessor(
+        action_convertor=action_convertor, action_regulator=action_regulator
+    )
+    state_preprocessor = CSTRStatePreprocessor()
+
+    # Prepare integrator
+    if env_config[&quot;integrator&quot;] == &quot;diffeqpy&quot;:
+        system_dynamics = CSTRDiffeqpySystemDynamics()
+        integrator_config = DiffeqpyIntegratorConfig(**env_config[&quot;integrator_config&quot;])
+        integrator = DiffeqpyIntegrator(
+            system_dynamics=system_dynamics, integrator_config=integrator_config
+        )
+    elif env_config[&quot;integrator&quot;] == &quot;scipy&quot;:
+        system_dynamics = CSTRScipySystemDynamics()
+        integrator_config = ScipyIntegratorConfig(**env_config[&quot;integrator_config&quot;])
+        integrator = ScipyIntegrator(
+            system_dynamics=system_dynamics, integrator_config=integrator_config
+        )
+    else:
+        raise NotImplementedError(f&quot;Integrator {env_config['integrator']} not implemented&quot;)
+
+    # Prepare extractors + state postprocessor
+    observation_extractor = CSTRObservationExtractor()
+    reward_extractor = CSTRRewardExtractor()
+    terminated_extractor = CSTRTerminatedExtractor()
+    truncated_extractor = CSTRTruncatedExtractor()
+    info_extractor = CSTRInfoExtractor()
+    state_postprocessor = CSTRStatePostprocessor()
+
+    # Instantiate CSTR Environment
+    env = CSTREnvironment(
+        physical_parameters_generator=physical_parameters_generator,
+        initial_state_generator=CSTRInitialStateGenerator(),
+        integrator=integrator,
+        action_preprocessor=action_preprocessor,
+        state_preprocessor=state_preprocessor,
+        state_postprocessor=state_postprocessor,
+        observation_extractor=observation_extractor,
+        reward_extractor=reward_extractor,
+        terminated_extractor=terminated_extractor,
+        truncated_extractor=truncated_extractor,
+        info_extractor=info_extractor,
+        seed=env_config[&quot;random_seed&quot;],
+    )
+
+    return env
+</code></pre>
+<p>Having this factory, we can now easily create an environment and interact with it:</p>
+<pre><code class="language-python">import numpy as np
+from make_env import make_cstr_environment
+
+# For the reference of the physical parameters see:
+# D. Machalek, T. Quah and K. M. Powell,
+# &quot;Dynamic Economic Optimization of a Continuously Stirred Tank Reactor Using Reinforcement Learning,&quot;
+# 2020 American Control Conference (ACC), Denver, CO, USA, 2020, pp. 2955-2960,
+# doi: 10.23919/ACC45564.2020.9147706.
+env_config = {
+    &quot;integrator&quot;: &quot;scipy&quot;,
+    &quot;integrator_config&quot;: {
+        &quot;action_duration&quot;: 0.1,
+        &quot;method&quot;: &quot;RK45&quot;,
+        &quot;rtol&quot;: 1e-6,
+        &quot;atol&quot;: 1e-8,
+            },
+            &quot;random_seed&quot;: 0,
+            &quot;physical_parameters&quot;: {
+                &quot;fixed_values&quot;: {
+                    &quot;c_a_0&quot;: 0.3,
+                    &quot;c_p&quot;: 3.25,
+                    &quot;e_a&quot;: 41570,
+                    &quot;e_b&quot;: 45727,
+                    &quot;f&quot;: 0.0025,
+                    &quot;dh&quot;: 4157,
+                    &quot;k_0_a&quot;: 50_000,
+                    &quot;k_0_b&quot;: 100_000,
+                    &quot;r&quot;: 8.314,
+                    &quot;t_0&quot;: 300,
+                    &quot;v&quot;: 0.2,
+                    &quot;q_max&quot;: 5000,
+                    &quot;max_timestep&quot;: 100,
+                },
+                &quot;sampled_values&quot;: {
+                    &quot;p&quot;: {&quot;distribution&quot;: &quot;choice&quot;, &quot;choices&quot;: [780, 790], &quot;size&quot;: 1}
+                },
+            },
+        }
+
+env = make_cstr_environment(env_config)
+env.reset()
+done = False
+while not done:
+    action = np.random.uniform(0.0, 1.0)  # Raw scalar: normalized heat input
+    next_state, reward, terminated, truncated, info = env.step(action)
+    done = terminated or truncated
+
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>This tutorial has shown you how to create custom environments using the DEgym framework, following the methodology outlined in the official documentation. The key is to understand the separation between DAE components and RL components, and to implement each piece systematically starting with the DAE formulation.</p>
+<p>The CSTR example demonstrates a complete, working implementation that you can use as a reference for your own environments.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
