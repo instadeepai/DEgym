@@ -1,0 +1,18 @@
+*
+
+# Include files for building and running
+!src
+!tests
+!reax_tutorials
+!build
+!scripts
+!experiment_configs
+!.env
+
+# Allow to use the repository as a package
+!pyproject.toml
+!uv.lock
+!README.md
+
+# To run the linters in the CI job
+!.pre-commit-config.yaml
