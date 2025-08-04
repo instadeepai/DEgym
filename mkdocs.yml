@@ -1,0 +1,10 @@
+site_name: DEgym
+repo_url: https://github.com/instadeepai/DEgym
+theme:
+  name: material
+nav:
+  - "Home": index.md
+  - "Installation": installation.md
+  - "DEgym Essentials: Design and Usage": degym_essentials.md
+  - "Terminology": terminology.md
+  - "A Comprehensive Tutorial": how_to_build_new_env.md

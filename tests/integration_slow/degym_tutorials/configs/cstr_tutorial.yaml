@@ -1,0 +1,28 @@
+env: cstr_tutorial
+
+env_config:
+  random_seed: 0
+  integrator: null
+  integrator_config:
+    action_duration: 1
+  physical_parameters:
+    fixed_values:
+      c_a_0: 0.3
+      c_p: 3.25
+      e_a: 41570
+      e_b: 45727
+      f: 0.0025
+      dh: 4157
+      k_0_a: 50_000
+      k_0_b: 100_000
+      r: 8.314
+      t_0: 300
+      v: 0.2
+      q_max: 5000
+      max_timestep: 600
+    sampled_values:
+      p:
+        distribution: uniform
+        low: 700
+        high: 800
+        size: 1
