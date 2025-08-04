@@ -1,0 +1,109 @@
+name: DEgym pipeline
+
+on: [push, pull_request]
+
+jobs:
+  build-image:
+    name: Build
+    uses: instadeepai/mlops-reusable-ci/.github/workflows/docker-build.yaml@main
+    with:
+      image: ghcr.io/instadeepai/degym/degym_dev
+      cache-image: ghcr.io/instadeepai/degym/degym_dev/cache
+      build-path: .
+      display-name: Build Image 🛠️
+      filename: "build/Dockerfile"
+      target: "degym-ci"
+      main-branch: main
+      registry-host: ghcr.io
+      registry-username: ${{ github.actor }}
+      dockerhub-username: ${{ vars.DOCKERHUB_USERNAME }}
+    secrets:
+      registry-password: ${{ secrets.GITHUB_TOKEN }}
+      dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+  run-tests:
+    name: Run Tests
+    runs-on: instadeep-ci-8-highmem
+    needs: build-image
+    container:
+      image: ghcr.io/instadeepai/degym/degym_dev:${{ github.sha }}
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Checkout code 📦
+        uses: actions/checkout@v4
+
+      - name: Run tests ✅
+        shell: bash -leo pipefail {0}
+        run: uv run pytest --cov=src --cov-report xml:coverage/coverage.xml --capture no
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/coverage.xml
+      - name: Code Coverage Summary Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          badge: true
+          output: both
+          filename: coverage/coverage.xml
+          fail_below_min: true
+          format: markdown
+          thresholds: '60 80'
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          recreate: true
+          path: code-coverage-results.md
+
+  run-tests-marked-slow:
+    runs-on: instadeep-ci-8-highmem
+    needs: build-image
+    container:
+      image: ghcr.io/instadeepai/degym/degym_dev:${{ github.sha }}
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    strategy:
+      max-parallel: 5
+    steps:
+      - name: Checkout code 📦
+        uses: actions/checkout@v4
+
+      - name: Run tests (tests marked 'slow' only) ✅
+        shell: bash -leo pipefail {0}
+        run: uv run pytest -m slow
+
+  lint:
+    name: Lint
+    runs-on: instadeep-ci-4
+    needs: build-image
+    container:
+      image: ghcr.io/instadeepai/degym/degym_dev:${{ github.sha }}
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    strategy:
+      max-parallel: 5
+    steps:
+      - name: Checkout code 📦
+        uses: actions/checkout@v4
+      - name: Install hooks and run pre-commit
+        run: |
+          git config --global --add safe.directory $GITHUB_WORKSPACE &&
+          uv run pre-commit install-hooks &&
+          uv run pre-commit run --all-files
+
+  validate-pr-title:
+    if: github.event_name == 'pull_request'
+    runs-on: "instadeep-ci"
+    container:
+      image: ghcr.io/catthehacker/ubuntu:runner-latest
+    steps:
+      - name: PR Title | Conventional Commit Validation
+        uses: ytanikin/pr-conventional-commits@1.4.0
+        with:
+          task_types: '["build","style","feat","fix","docs","test","ci","refactor","perf","chore","revert"]'
