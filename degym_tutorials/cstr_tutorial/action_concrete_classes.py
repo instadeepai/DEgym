@@ -16,9 +16,9 @@ from typing import TypeAlias
 
 import gymnasium as gym
 import numpy as np
+from degym.action import Action, ActionConvertor, ActionPreprocessor, ActionRegulator, DAEAction
 from numpy.typing import NDArray
 from pydantic.dataclasses import dataclass
-from degym.action import Action, ActionConvertor, ActionPreprocessor, ActionRegulator, DAEAction
 
 from degym_tutorials.cstr_tutorial.state_concrete_classes import CSTRState
 

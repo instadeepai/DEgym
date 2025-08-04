@@ -15,7 +15,6 @@
 from __future__ import annotations
 
 import numpy as np
-from numpy.typing import NDArray
 from degym.state import (
     DAEParameters,
     DAEState,
@@ -24,6 +23,7 @@ from degym.state import (
     StatePostprocessor,
     StatePreprocessor,
 )
+from numpy.typing import NDArray
 
 from degym_tutorials.cstr_tutorial.physical_parameters import CSTRPhysicalParameters
 

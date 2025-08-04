@@ -17,8 +17,6 @@ from typing import Optional
 
 import gymnasium as gym
 import numpy as np
-from numpy.typing import NDArray
-from pydantic.dataclasses import dataclass
 from degym.extractors import (
     InfoExtractor,
     Observation,
@@ -27,6 +25,8 @@ from degym.extractors import (
     TerminatedExtractor,
     TruncatedExtractor,
 )
+from numpy.typing import NDArray
+from pydantic.dataclasses import dataclass
 
 from degym_tutorials.cstr_tutorial.action_concrete_classes import CSTRDAEAction
 from degym_tutorials.cstr_tutorial.state_concrete_classes import CSTRState

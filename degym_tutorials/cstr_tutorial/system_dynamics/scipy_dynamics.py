@@ -13,8 +13,8 @@
 # limitations under the License.
 
 import numpy as np
-from numpy.typing import NDArray
 from degym.system_dynamics import ScipySystemDynamicsFn
+from numpy.typing import NDArray
 
 from degym_tutorials.cstr_tutorial.action_concrete_classes import CSTRDAEAction
 from degym_tutorials.cstr_tutorial.cstr_utils import reaction_rate

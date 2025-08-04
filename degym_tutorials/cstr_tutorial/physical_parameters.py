@@ -16,11 +16,11 @@ from dataclasses import asdict
 from typing import Any, Optional, Union
 
 import numpy as np
+from degym.physical_parameters import PhysicalParameters, PhysicalParametersGenerator
+from degym.utils import PydanticBaseModel
 from numpy.typing import NDArray
 from pydantic import model_validator
 from pydantic.dataclasses import dataclass
-from degym.physical_parameters import PhysicalParameters, PhysicalParametersGenerator
-from degym.utils import PydanticBaseModel
 
 from degym_tutorials.cstr_tutorial.sampling import sampling_constructors
 

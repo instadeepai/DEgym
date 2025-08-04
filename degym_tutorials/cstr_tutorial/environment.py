@@ -14,9 +14,9 @@
 
 from typing import Optional
 
-from numpy.typing import NDArray
 from degym.environment import Environment
 from degym.integrators import TimeSpan
+from numpy.typing import NDArray
 
 from degym_tutorials.cstr_tutorial.rendering import draw_cstr_with_heater_and_circles
 from degym_tutorials.cstr_tutorial.state_concrete_classes import (
