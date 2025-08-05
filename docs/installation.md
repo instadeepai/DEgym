@@ -95,35 +95,68 @@ uv run build/install_julia.py
 
 ## Docker Installation
 
-For containerized deployments, DEgym provides several Docker images optimized for different use cases.
+For containerized deployments, DEgym provides several Docker images optimized for different use cases. The Dockerfile uses multi-stage builds for efficiency.
 
 ### Available Docker Images
 
-- **degym-aichor**: Production image for SciPy integrators on AIChor platform.
-- **degym-ci**: CI/CD image with testing capabilities and Git support.
-- **degym-diffeqpy**: Experimental image with Julia-based DiffEqPy integrators.
+- **degym-min**: Minimal production image for running with SciPy integrators (without access to tutorials).
+- **degym-ci**: CI/CD image with testing capabilities, includes all dependencies for continuous integration.
+- **degym-diffeqpy**: Experimental image with Julia-based DiffEqPy integrators and Git support for development.
 
 ### Building Docker Images
 
+Build from the project root directory using the Dockerfile located in `build/Dockerfile`:
+
 ```bash
-# Build the AIChor production image
-docker build --target degym-aichor -t degym-aichor .
+# Build the minimal production image
+docker build -f build/Dockerfile --target degym-min -t degym-min .
 
 # Build the CI/testing image
-docker build --target degym-ci -t degym-ci .
+docker build -f build/Dockerfile --target degym-ci -t degym-ci .
 
 # Build the DiffEqPy image (experimental)
-docker build --target degym-diffeqpy -t degym-diffeqpy .
+docker build -f build/Dockerfile --target degym-diffeqpy -t degym-diffeqpy .
 ```
+
+### Docker Image Features
+
+**Best Practices:**
+- Multi-stage builds for optimal layer caching and image size
+- Efficient package installation with UV package manager
+- Build cache mounts for faster subsequent builds
+- Proper cleanup of package manager caches
+
+**Development vs Production:**
+- **degym-min**: Optimized for production workloads, minimal dependencies
+- **degym-ci**: Includes testing tools and development dependencies
+- **degym-diffeqpy**: Full development environment with Git support (experimental)
 
 ### Using Docker Images
 
 ```bash
-# Run with the AIChor image
-docker run -it degym-aichor
+# Run with the minimal image
+docker run -it degym-min bash -c "python -c 'import degym; print(\"DEgym loaded successfully!\")'"
 
 # Run with volume mounting for development
-docker run -v $(pwd):/workspace -it degym-ci bash
+docker run -v $(pwd):/app/workspace -it degym-ci bash -c "cd workspace && uv run pytest"
+
+# Interactive development with the CI image
+docker run -v $(pwd):/app/workspace -it degym-ci bash
+```
+
+### Docker Development Workflow
+
+For development with Docker:
+
+```bash
+# Build the CI image
+docker build -f build/Dockerfile --target degym-ci -t degym-ci .
+
+# Run tests
+docker run -v $(pwd):/app/workspace degym-ci bash -c "cd workspace && uv run pytest"
+
+# Run with interactive shell for debugging
+docker run -v $(pwd):/app/workspace -it degym-ci bash
 ```
 
 ## Environment Setup
@@ -181,6 +214,15 @@ export PYTHONPATH=$PWD:$PYTHONPATH
 # Solution: Ensure uv is in your PATH or reinstall
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source ~/.bashrc  # or restart terminal
+```
+
+**3. Docker Build Issues**
+```bash
+# Solution: Ensure you're building from the project root
+docker build -f build/Dockerfile --target degym-ci -t degym-ci .
+
+# Clear Docker cache if needed
+docker builder prune
 ```
 
 ## Next Steps
