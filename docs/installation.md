@@ -99,9 +99,9 @@ For containerized deployments, DEgym provides several Docker images optimized fo
 
 ### Available Docker Images
 
-- **degym-min**: Minimal production image for running with SciPy integrators (without access to tutorials).
-- **degym-ci**: CI/CD image with testing capabilities, includes all dependencies for continuous integration.
-- **degym-diffeqpy**: Experimental image with Julia-based DiffEqPy integrators and Git support for development.
+- **degym-minimal**: Minimal production image for running with SciPy integrators (without access to tutorials).
+- **degym-main**: CI/CD image with testing capabilities, includes all dependencies for continuous integration.
+- **degym-diffeqpy**: Experimental image with Julia-based DiffEqPy integrators development.
 
 ### Building Docker Images
 
@@ -109,10 +109,10 @@ Build from the project root directory using the Dockerfile located in `build/Doc
 
 ```bash
 # Build the minimal production image
-docker build -f build/Dockerfile --target degym-min -t degym-min .
+docker build -f build/Dockerfile --target degym-minimal -t degym-minimal .
 
 # Build the CI/testing image
-docker build -f build/Dockerfile --target degym-ci -t degym-ci .
+docker build -f build/Dockerfile --target degym-main -t degym-main .
 
 # Build the DiffEqPy image (experimental)
 docker build -f build/Dockerfile --target degym-diffeqpy -t degym-diffeqpy .
@@ -135,7 +135,7 @@ docker build -f build/Dockerfile --target degym-diffeqpy -t degym-diffeqpy .
 
 ```bash
 # Run with the minimal image
-docker run -it degym-min bash -c "python -c 'import degym; print(\"DEgym loaded successfully!\")'"
+docker run -it degym-minimal bash -c "python -c 'import degym; print(\"DEgym loaded successfully!\")'"
 
 # Run with volume mounting for development
 docker run -v $(pwd):/app/workspace -it degym-ci bash -c "cd workspace && uv run pytest"
@@ -150,13 +150,13 @@ For development with Docker:
 
 ```bash
 # Build the CI image
-docker build -f build/Dockerfile --target degym-ci -t degym-ci .
+docker build -f build/Dockerfile --target degym-main -t degym-main .
 
 # Run tests
-docker run -v $(pwd):/app/workspace degym-ci bash -c "cd workspace && uv run pytest"
+docker run -v $(pwd):/app/workspace degym-main bash -c "cd workspace && uv run pytest"
 
 # Run with interactive shell for debugging
-docker run -v $(pwd):/app/workspace -it degym-ci bash
+docker run -v $(pwd):/app/workspace -it degym-main bash
 ```
 
 ## Environment Setup
@@ -219,7 +219,7 @@ source ~/.bashrc  # or restart terminal
 **3. Docker Build Issues**
 ```bash
 # Solution: Ensure you're building from the project root
-docker build -f build/Dockerfile --target degym-ci -t degym-ci .
+docker build -f build/Dockerfile --target degym-main -t degym-main .
 
 # Clear Docker cache if needed
 docker builder prune
