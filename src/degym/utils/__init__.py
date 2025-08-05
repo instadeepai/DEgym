@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from degym.utils.non_overridability_utils.non_overrideability import NoOverrideMeta, no_override
-from degym.utils.pydantic_utils.pydantic_base_model import PydanticBaseModel
+from degym.utils.non_overrideability import NoOverrideMeta, no_override
+from degym.utils.pydantic_base_model import PydanticBaseModel
 
 __all__ = [
     "no_override",
