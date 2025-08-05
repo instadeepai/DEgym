@@ -79,7 +79,7 @@ class StatePreprocessor(ABC):
         ```
 
     Note:
-        - State preprocessing returns a State object; Hence, it's scope is limited to that.
+        - State preprocessing returns a State object; Hence, its scope is limited to that.
         - Any transformations applied should be mathematically consistent with the format of
         the State object and reversible if needed (in postprocessing this is reversed).
     """

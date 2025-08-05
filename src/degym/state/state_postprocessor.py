@@ -119,7 +119,7 @@ class StatePostprocessor(ABC):
             - Converting pressure units back to standard values
 
         Note:
-            - The returned state is a State object; Hence, it's scope is limited to that.
+            - The returned state is a State object; Hence, its scope is limited to that.
             - Any transformations applied should reverse preprocessing operations and ensure
             the State object is in the expected format for downstream components.
         """

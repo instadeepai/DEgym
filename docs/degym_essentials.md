@@ -35,7 +35,7 @@ The main RL-related logics belong to `__init__` and `step` functions. In the fig
 </p>
 
 > [!NOTE]
-> For easier visualization, the above diagrams does not show the data classes which are passed between the components, nor it indicates where the information is saved.
+> For easier visualization, the above diagrams do not show the data classes which are passed between the components, nor do they indicate where the information is saved.
 
 ## How to use DEgym
 To create a new environment using DEgym, one needs to subclass the `Environment` class and implement all the required abstract classes. The `Environment.__init__()` method requires the following components:
@@ -58,6 +58,6 @@ def __init__(
 ) -> None:
 ```
 All of the above components (except the `Integrator` which is already implemented) are use-case dependent and need to be implemented by subclassing them.
-> For a detailed tutorial of such implementation for a continous stirred tank reactor (CSTR) refer to [Creating New Environments with DEgym: A Comprehensive Tutorial](how_to_build_new_env.md).
+
 >[!TIP]
-> For a detailed tutorial of such implementation for a continous stirred tank reactor (CSTR) refer to [A Comprehensive Tutorial](how_to_build_new_env.md).
+> For a detailed tutorial of such implementation for a continuous stirred tank reactor (CSTR) refer to [A Comprehensive Tutorial](how_to_build_new_env.md).

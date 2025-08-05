@@ -66,7 +66,7 @@ The framework provides the RL-related infrastructure, while users implement only
 </p>
 
 > [!NOTE]
-> For easier visualization, the above diagrams does not show the data classes which are passed between the components, nor it indicates where the information is saved.
+> For easier visualization, the above diagrams do not show the data classes which are passed between the components, nor do they indicate where the information is saved.
 
 ## Building a New Environment: Complete Implementation Guide
 
