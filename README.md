@@ -33,7 +33,7 @@ This separation enables both human developers and AI agents to create new enviro
 
 Perfect for optimizing:
 - **Chemical Reactors**: CSTR, batch reactors, flow reactors
-- **Biological Systems**: Fermentation processes, metabolic networks(https://en.wikipedia.org/wiki/Biochemical_systems_theory), population dynamics [model](https://en.wikipedia.org/wiki/Population_dynamics),
+- **Biological Systems**: Fermentation processes, metabolic [networks](https://en.wikipedia.org/wiki/Biochemical_systems_theory), population dynamics [model](https://en.wikipedia.org/wiki/Population_dynamics),
 - **Environmental and Earth Sciences**: Energy balance climate [models](https://en.wikipedia.org/wiki/Earth%27s_energy_budget), water reservoir systems, groundwater level dynamics, carbon cycle models
 - **Sociology and Psychology**: Opinion dynamics models (e.g., DeGroot [model](https://en.wikipedia.org/wiki/DeGroot_learning)), adoption of innovation ([Bass model](https://en.wikipedia.org/wiki/Bass_diffusion_model)), population-level behavior change models
 - **Economics and Financial Systems**:  Solow-Swan [model](https://en.wikipedia.org/wiki/Solow%E2%80%93Swan_model), dynamics of financial market (e.g., simplified Black-Scholes-Merton [model](https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_model))
