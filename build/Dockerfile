@@ -39,7 +39,7 @@ ENV LANG=C.UTF-8 \
 
 # Install build-essential
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends build-essential wget && \
+    apt-get install -y --no-install-recommends build-essential wget git && \
     rm -rf /var/lib/{apt,dpkg,cache,log}
 
 # Update PYTHONPATH to make modules in "degym_tutorials" discoverable.
