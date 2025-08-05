@@ -70,7 +70,7 @@ RUN uv sync --group test
 ENTRYPOINT ["bash", "-c"]
 
 # Stage: 'degym-diffeqpy'
-# Image for the CI, with all project dependencies and git for pre-commit hooks
+# Image for running with diffeqpy integrators with access to tutorials.
 FROM degym-main AS degym-diffeqpy
 
 # Install git for pre-commit hooks (build-essential and wget already installed in base-image)
