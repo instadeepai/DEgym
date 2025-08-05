@@ -12,7 +12,7 @@ jobs:
       build-path: .
       display-name: Build Image 🛠️
       filename: "build/Dockerfile"
-      target: "degym-ci"
+      target: "degym-main"
       main-branch: main
       registry-host: ghcr.io
       registry-username: ${{ github.actor }}

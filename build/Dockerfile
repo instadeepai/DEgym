@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
 # This Dockerfile is used to build three images:
-# - 'degym-min': minimal image for running with scipy integrators on without access to tutorials.
-# - 'degym-ci': Base image for running with scipy integrators with access to tutorials.
+# - 'degym-minimal': minimal image for running with scipy integrators on without access to tutorials.
+# - 'degym-main': Base image for running with scipy integrators with access to tutorials.
 # - 'degym-diffeqpy': Image for running with diffeqpy integrators with access to tutorials.
 # (NOTE: The `degym-diffeqpy` image is not stable, cannot build locally or on the CI.)
 
@@ -45,9 +45,9 @@ RUN apt-get update && \
 # Update PYTHONPATH to make modules in "degym_tutorials" discoverable.
 WORKDIR /app
 
-# Stage: 'degym-base'
+# Stage: 'degym-minimal'
 # This image contains the project and all the dependencies, for running with scipy integrators.
-FROM base-image AS degym-min
+FROM base-image AS degym-minimal
 
 # Files required to install dependencies. Package build with hatchling requires README.
 COPY uv.lock pyproject.toml README.md ./
@@ -58,9 +58,9 @@ COPY . .
 RUN uv sync
 ENTRYPOINT ["bash", "-c"]
 
-# Stage: 'degym-ci'
+# Stage: 'degym-main'
 # This image contains the project and all the dependencies, for running with scipy integrators with access to tutorials.
-FROM degym-min AS degym-ci
+FROM degym-minimal AS degym-main
 
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --group test --no-install-project
@@ -71,7 +71,7 @@ ENTRYPOINT ["bash", "-c"]
 
 # Stage: 'degym-diffeqpy'
 # Image for the CI, with all project dependencies and git for pre-commit hooks
-FROM degym-ci AS degym-diffeqpy
+FROM degym-main AS degym-diffeqpy
 
 # Install git for pre-commit hooks (build-essential and wget already installed in base-image)
 RUN apt-get update && \
