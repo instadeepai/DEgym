@@ -939,7 +939,7 @@ Having this factory, we can now easily create an environment and interact with i
 
 ```python
 import numpy as np
-from make_env import make_cstr_environment
+from degym_tutorials.cstr_tutorial.make_env import make_cstr_environment
 
 # For the reference of the physical parameters see:
 # D. Machalek, T. Quah and K. M. Powell,
@@ -986,6 +986,8 @@ while not done:
     done = terminated or truncated
 
 ```
+
+To render snapshots of the environment (and save them) see [this script](degym_tutorials/cstr_tutorial/run_one_episode_for_visualization.py).
 
 ## Conclusion
 

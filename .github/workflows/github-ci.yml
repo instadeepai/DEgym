@@ -23,7 +23,7 @@ jobs:
 
   run-tests:
     name: Run Tests
-    runs-on: ubuntu-latest
+    runs-on: instadeep-ci
     needs: build-image
     container:
       image: ghcr.io/instadeepai/degym/degym_dev:${{ github.sha }}
@@ -60,7 +60,7 @@ jobs:
           path: code-coverage-results.md
 
   run-tests-marked-slow:
-    runs-on: ubuntu-latest
+    runs-on: instadeep-ci
     needs: build-image
     container:
       image: ghcr.io/instadeepai/degym/degym_dev:${{ github.sha }}
@@ -79,7 +79,7 @@ jobs:
 
   lint:
     name: Lint
-    runs-on: ubuntu-latest
+    runs-on: instadeep-ci
     needs: build-image
     container:
       image: ghcr.io/instadeepai/degym/degym_dev:${{ github.sha }}

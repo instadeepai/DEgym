@@ -4,7 +4,7 @@
 <p align="center">
   <img src="docs/images/startpage.gif" width="800">
   <br>
-  A framework for converting dynamical systems to RL environments.
+  <em>A framework for converting dynamical systems to RL environments.</em>
 
 </p>
 
