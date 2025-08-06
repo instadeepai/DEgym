@@ -20,7 +20,7 @@ DEgym addresses the challenge of creating RL environments for process optimizati
 - **AI-Agent Ready**: Rich context and clear interfaces designed for [Software 3.0](https://www.youtube.com/watch?v=LCEmiRjPEtQ) development
 - **Production Ready**: Gymnasium-compatible environments for seamless integration with RL libraries
 
-### 🏗️ **Architecture Overview**o
+### 🏗️ **Architecture Overview**
 
 DEgym implements a clean separation of concerns:
 
