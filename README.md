@@ -4,7 +4,7 @@
 <p align="center">
   <img src="docs/images/startpage.gif" width="800">
   <br>
-  A framework for converting dynamical systems to RL environments.
+  <em>A framework for converting dynamical systems to RL environments.</em>
 
 </p>
 
@@ -20,7 +20,7 @@ DEgym addresses the challenge of creating RL environments for process optimizati
 - **AI-Agent Ready**: Rich context and clear interfaces designed for [Software 3.0](https://www.youtube.com/watch?v=LCEmiRjPEtQ) development
 - **Production Ready**: Gymnasium-compatible environments for seamless integration with RL libraries
 
-### 🏗️ **Architecture Overview**
+### 🏗️ **Architecture Overview**o
 
 DEgym implements a clean separation of concerns:
 
