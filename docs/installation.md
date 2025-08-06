@@ -127,8 +127,8 @@ docker build -f build/Dockerfile --target degym-diffeqpy -t degym-diffeqpy .
 - Proper cleanup of package manager caches
 
 **Development vs Production:**
-- **degym-min**: Optimized for production workloads, minimal dependencies
-- **degym-ci**: Includes testing tools and development dependencies
+- **degym-minimal**: Optimized for production workloads, minimal dependencies
+- **degym-main**: Includes testing tools and development dependencies
 - **degym-diffeqpy**: Full development environment with Git support (experimental)
 
 ### Using Docker Images
@@ -138,10 +138,10 @@ docker build -f build/Dockerfile --target degym-diffeqpy -t degym-diffeqpy .
 docker run -it degym-minimal bash -c "python -c 'import degym; print(\"DEgym loaded successfully!\")'"
 
 # Run with volume mounting for development
-docker run -v $(pwd):/app/workspace -it degym-ci bash -c "cd workspace && uv run pytest"
+docker run -v $(pwd):/app/workspace -it degym-main bash -c "cd workspace && uv run pytest"
 
 # Interactive development with the CI image
-docker run -v $(pwd):/app/workspace -it degym-ci bash
+docker run -v $(pwd):/app/workspace -it degym-main bash
 ```
 
 ### Docker Development Workflow
