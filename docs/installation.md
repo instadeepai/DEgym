@@ -19,6 +19,7 @@ DEgym uses `uv` for fast and reliable package management. This is the recommende
 Follow the installation guide in the [uv documentation](https://docs.astral.sh/uv/) to install `uv` on your system.
 
 **Quick installation:**
+
 ```bash
 # On macOS and Linux
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -30,6 +31,7 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ### Getting the Repository
 
 Clone the DEgym repository:
+
 ```bash
 git clone git@github.com:instadeepai/degym.git
 cd degym
@@ -48,6 +50,7 @@ uv sync
 ```
 
 **What's included:**
+
 - Core DEgym framework.
 - SciPy integrators.
 - Basic RL environment functionality.
@@ -63,6 +66,7 @@ uv pip install -e .
 ```
 
 **What's included:**
+
 - Everything from Basic Installation.
 - Testing frameworks (pytest, etc.).
 - Code linting tools.
@@ -78,6 +82,7 @@ uv run build/install_julia.py
 ```
 
 **What's included:**
+
 - Everything from Basic Installation.
 - Julia-based DiffEqPy integrators.
 - Advanced numerical solvers.
@@ -121,12 +126,14 @@ docker build -f build/Dockerfile --target degym-diffeqpy -t degym-diffeqpy .
 ### Docker Image Features
 
 **Best Practices:**
+
 - Multi-stage builds for optimal layer caching and image size
 - Efficient package installation with UV package manager
 - Build cache mounts for faster subsequent builds
 - Proper cleanup of package manager caches
 
 **Development vs Production:**
+
 - **degym-minimal**: Optimized for production workloads, minimal dependencies
 - **degym-main**: Includes testing tools and development dependencies
 - **degym-diffeqpy**: Full development environment with Git support (experimental)
@@ -204,12 +211,14 @@ uv run python -c "import degym; print('DEgym imported successfully!')"
 ### Common Issues
 
 **1. ModuleNotFoundError**
+
 ```bash
 # Solution: Update PYTHONPATH
 export PYTHONPATH=$PWD:$PYTHONPATH
 ```
 
 **2. uv command not found**
+
 ```bash
 # Solution: Ensure uv is in your PATH or reinstall
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -217,6 +226,7 @@ source ~/.bashrc  # or restart terminal
 ```
 
 **3. Docker Build Issues**
+
 ```bash
 # Solution: Ensure you're building from the project root
 docker build -f build/Dockerfile --target degym-main -t degym-main .
@@ -232,5 +242,6 @@ After successful installation:
 1. **Read Documentation**: Read the [DEgym Essentials](degym_essentials.md) to understand the framework architecture and basic usage.
 2. **Read the Tutorial**: Follow the [comprehensive tutorial](how_to_build_new_env.md) to create your first custom environment, and check out the CSTR examples in the `degym_tutorials/` directory.
 3. **Start Implementing Your Env** 🧑‍🍳⚗️
+
 > [!TIP]
 > For the best development experience, we recommend using the Development Installation with your preferred IDE configured for Python development.
