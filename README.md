@@ -108,7 +108,7 @@ If you use DEgym in your work, please cite:
 ```
 @misc{degym,
     title={DEgym: A framework for developing reinforcement learning environments for dynamical systems},
-    author={Marco Carobene, Frédéric Renard, Alind Gupta, Miguel Arbesú, Nima H. Siboni},
+    author={Nima H. Siboni, Marco Carobene, Frédéric Renard, Alind Gupta, Miguel Arbesú},
     year={2025},
     url={https://github.com/instadeepai/degym/},
 }
