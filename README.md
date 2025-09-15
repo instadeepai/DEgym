@@ -32,6 +32,7 @@ This separation enables both human developers and AI agents to create new enviro
 ### 🚀 **Use Cases**
 
 Perfect for optimizing:
+
 - **Chemical Reactors**: CSTR, batch reactors, flow reactors.
 - **Biological Systems**: Fermentation processes, metabolic [networks](https://en.wikipedia.org/wiki/Biochemical_systems_theory), population dynamics [model](https://en.wikipedia.org/wiki/Population_dynamics).
 - **Environmental and Earth Sciences**: Energy balance climate [models](https://en.wikipedia.org/wiki/Earth%27s_energy_budget), water reservoir systems, groundwater level dynamics, carbon cycle models.
@@ -41,6 +42,7 @@ Perfect for optimizing:
 ### 💡 **Why DEgym?**
 
 Traditional approaches require implementing RL environments from scratch for each reactor type. DEgym provides:
+
 - **Faster Development**: Focus on dynamics of the system, not RL boilerplate
 - **Consistent Quality**: Proven RL patterns and best practices built-in
 - **Easy Maintenance**: Modular architecture scales across different use-cases
@@ -94,15 +96,17 @@ while not done:
 
 ## 📖 Documentation
 
+- **[Documentation home page](https://instadeepai.github.io/DEgym/)**: Full documentation website.
 - **[Installation Guide](docs/installation.md)**: Comprehensive setup instructions for all use cases
 - **[DEgym Essentials](docs/degym_essentials.md)**: Core architecture and design principles
 - **[Tutorial](docs/how_to_build_new_env.md)**: Step-by-step guide to creating custom environments
 
 ## 🤝 Contributing
 
-See the [development installation](docs/installation.md#2-development-installation) for setting up the development environment with testing and linting tools.
+If you wish to contribute to DEGym, please refer to the [contribution guidelines](/docs/contributing.md) and follow the [development installation](/docs/installation.md#2-development-installation) for setting up the development environment with testing and linting tools.
 
 ## ↩️ Citation
+
 If you use DEgym in your work, please cite:
 
 ```
