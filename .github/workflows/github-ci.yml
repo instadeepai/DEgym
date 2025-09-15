@@ -1,109 +1,40 @@
-name: DEgym pipeline
+name: CI 🧪
 
-on: [push, pull_request]
+on: [ pull_request ]
 
 jobs:
-  build-image:
-    name: Build
-    uses: instadeepai/mlops-reusable-ci/.github/workflows/docker-build.yaml@main
-    with:
-      image: ghcr.io/instadeepai/degym/degym_dev
-      cache-image: ghcr.io/instadeepai/degym/degym_dev/cache
-      build-path: .
-      display-name: Build Image 🛠️
-      filename: "build/Dockerfile"
-      target: "degym-main"
-      main-branch: main
-      registry-host: ghcr.io
-      registry-username: ${{ github.actor }}
-      dockerhub-username: ${{ vars.DOCKERHUB_USERNAME }}
-    secrets:
-      registry-password: ${{ secrets.GITHUB_TOKEN }}
-      dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
+  linters:
+    name: "Python ${{ matrix.python-version }} on ubuntu-latest"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
 
-  run-tests:
-    name: Run Tests
-    runs-on: instadeep-ci
-    needs: build-image
-    container:
-      image: ghcr.io/instadeepai/degym/degym_dev:${{ github.sha }}
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-
-    steps:
-      - name: Checkout code 📦
-        uses: actions/checkout@v4
-
-      - name: Run tests ✅
-        shell: bash -leo pipefail {0}
-        run: uv run pytest --cov=src --cov-report xml:coverage/coverage.xml --capture no
-
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: coverage/coverage.xml
-      - name: Code Coverage Summary Report
-        uses: irongut/CodeCoverageSummary@v1.3.0
-        with:
-          badge: true
-          output: both
-          filename: coverage/coverage.xml
-          fail_below_min: true
-          format: markdown
-          thresholds: '60 80'
-      - name: Add Coverage PR Comment
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          recreate: true
-          path: code-coverage-results.md
-
-  run-tests-marked-slow:
-    runs-on: instadeep-ci
-    needs: build-image
-    container:
-      image: ghcr.io/instadeepai/degym/degym_dev:${{ github.sha }}
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
     strategy:
-      max-parallel: 5
+      matrix:
+        python-version: ["3.12", "3.11", "3.10"]
+
     steps:
       - name: Checkout code 📦
         uses: actions/checkout@v4
 
-      - name: Run tests (tests marked 'slow' only) ✅
-        shell: bash -leo pipefail {0}
-        run: uv run pytest -m slow
-
-  lint:
-    name: Lint
-    runs-on: instadeep-ci
-    needs: build-image
-    container:
-      image: ghcr.io/instadeepai/degym/degym_dev:${{ github.sha }}
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-    strategy:
-      max-parallel: 5
-    steps:
-      - name: Checkout code 📦
-        uses: actions/checkout@v4
-      - name: Install hooks and run pre-commit
-        run: |
-          git config --global --add safe.directory $GITHUB_WORKSPACE &&
-          uv run pre-commit install-hooks &&
-          uv run pre-commit run --all-files
-
-  validate-pr-title:
-    if: github.event_name == 'pull_request'
-    runs-on: "instadeep-ci"
-    container:
-      image: ghcr.io/catthehacker/ubuntu:runner-latest
-    steps:
-      - name: PR Title | Conventional Commit Validation
-        uses: ytanikin/pr-conventional-commits@1.4.0
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          task_types: '["build","style","feat","fix","docs","test","ci","refactor","perf","chore","revert"]'
+          version: "0.6.12"
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"  # invalidate cache when requirements file changes
+          python-version: "${{ matrix.python-version }}"
+
+      - uses: actions/setup-python@v5
+        with:
+            python-version: "${{ matrix.python-version }}"
+
+      - name: Install python dependencies 🔧
+        run: uv pip install . --group dev --group test
+        env:
+          UV_SYSTEM_PYTHON: 1
+
+      - name: Run linters 🖌️
+        run: uv run pre-commit run --all-files --verbose
+
+      - name: Run tests 🧪
+        run: uv run pytest --verbose
