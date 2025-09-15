@@ -24,3 +24,7 @@ The framework provides the RL-related infrastructure, while users implement only
 2. Read [DEgym Essentials](degym_essentials.md) to understand the core concepts.
 3. Review the [Terminology](terminology.md) to familiarize yourself with key terms.
 4. Follow the [Comprehensive Tutorial](how_to_build_new_env.md) to build your first environment.
+
+## Contributing
+
+If you wish to contribute to DEGym, please refer to the [contribution guidelines](/docs/contributing.md) and follow the [development installation](/docs/installation.md#2-development-installation) for setting up the development environment with testing and linting tools.

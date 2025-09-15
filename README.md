@@ -103,7 +103,7 @@ while not done:
 
 ## 🤝 Contributing
 
-If you wish to contribute to DEGym, please refer to the [contribution guidelines](/docs/contributing.md) and follow the [development installation](docs/installation.md#2-development-installation) for setting up the development environment with testing and linting tools.
+If you wish to contribute to DEGym, please refer to the [contribution guidelines](/docs/contributing.md) and follow the [development installation](/docs/installation.md#2-development-installation) for setting up the development environment with testing and linting tools.
 
 ## ↩️ Citation
 
