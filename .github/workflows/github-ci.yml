@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.12", "3.11"]
+        python-version: ["3.12", "3.11", "3.10"]
 
     steps:
       - name: Checkout mava
@@ -34,4 +34,4 @@ jobs:
           UV_SYSTEM_PYTHON: 1
 
       - name: Run linters 🖌️
-        run: pre-commit run --all-files --verbose
+        run: uv run pre-commit run --all-files --verbose
