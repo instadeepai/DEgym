@@ -6,4 +6,3 @@ The following users are the maintainers of DEGym:
 - [@mcarobene-id](https://github.com/mcarobene-id)
 - [@nima-siboni](https://github.com/nima-siboni)
 - [@awinstadeep](https://github.com/awinstadeep)
-
