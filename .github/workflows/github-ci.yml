@@ -35,3 +35,6 @@ jobs:
 
       - name: Run linters 🖌️
         run: uv run pre-commit run --all-files --verbose
+
+      - name: Run tests 🧪
+        run: uv run pytest --verbose
