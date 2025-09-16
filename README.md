@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <img src="docs/images/DEgym_Animation_v03.gif" width="800">
+  <img src="docs/images/degym_animation.gif" width="800">
   <br>
   <em>A framework for converting dynamical systems to RL environments.</em>
 
