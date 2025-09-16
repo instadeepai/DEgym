@@ -6,3 +6,8 @@ The following users are the maintainers of DEGym:
 - [@mcarobene-id](https://github.com/mcarobene-id)
 - [@nima-siboni](https://github.com/nima-siboni)
 - [@awinstadeep](https://github.com/awinstadeep)
+
+## Maintainer responsibilities
+
+- Triage new issues
+- Review and eventually approve PRs from contributors.
