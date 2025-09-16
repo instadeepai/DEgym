@@ -28,3 +28,5 @@ The framework provides the RL-related infrastructure, while users implement only
 ## Contributing
 
 If you wish to contribute to DEGym, please refer to the [contribution guidelines](/docs/contributing.md) and follow the [development installation](/docs/installation.md#2-development-installation) for setting up the development environment with testing and linting tools.
+
+This is the [list of maintainers](/docs/maintainers.md), who are in charge of triaging issues, reviewing and approving PRs from contributors.
