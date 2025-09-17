@@ -49,7 +49,7 @@ class CSTRDiffeqpySystemDynamics(DiffeqpySystemDynamicsFn):  # noqa: D101
             (3): dT/dt = (F * p * c_p (T_0 - T) + q - dh * V
                             * (k_a * c_a - k_b * c_b)) / (p * c_p * V)
         """
-        s = CSTRDAEState.from_np_array(input_values)  # dae stae
+        s = CSTRDAEState.from_np_array(input_values)  # dae state
         pm = CSTRDAEParameters.from_np_array(parameters[:-1])  # dae parameters
         a = CSTRDAEAction.from_np_array(parameters[-1:])  # dae action
 

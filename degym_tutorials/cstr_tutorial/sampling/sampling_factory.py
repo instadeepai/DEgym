@@ -51,7 +51,7 @@ class SamplingStrategyFactory:
                 f"The configured sampling strategy '{distribution}' is not "
                 f"found degym/sampling/sampling_factory.py. "
                 f"Either implement your own or use and register it with the "
-                f"factory or use one of the followings\n:"
+                f"factory or use one of the following\n:"
                 f" {cls._strategies.keys()}"
             )
         return cls._strategies[distribution]
