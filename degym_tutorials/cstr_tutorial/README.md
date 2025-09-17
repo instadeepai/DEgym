@@ -14,7 +14,7 @@ This tutorial implements a CSTR with reversible reaction A ⇌ B, where:
 </p>
 
 >[!TIP]
-> For a more  **detailed** instructiosn list :newspaper_roll: on how to implement a new environment using degym, refer to [comprehensive tutorial](../../docs/how_to_build_new_env.md)
+> For more  **detailed** instructions :newspaper_roll: on how to implement a new environment using degym, refer to the [comprehensive tutorial](../../docs/how_to_build_new_env.md)
 
 In this example, we implemented a CSTR with reversible reaction A ⇌ B, where:
 - **Goal**: Maximize product B concentration
