@@ -14,7 +14,7 @@
 
 from degym_tutorials.cstr_tutorial.action_concrete_classes import (
     CSTRAction,
-    CSTRActionConvertor,
+    CSTRActionConverter,
     CSTRDAEAction,
 )
 
@@ -22,20 +22,20 @@ from degym_tutorials.cstr_tutorial.state_concrete_classes import CSTRState
 
 
 def test_action_to_dae_action(cstr_state: CSTRState) -> None:
-    action_convertor = CSTRActionConvertor()
+    action_converter = CSTRActionConverter()
 
     action = CSTRAction(q_normalized=1.0)
-    dae_action = action_convertor.action_to_dae_action(action, cstr_state)
+    dae_action = action_converter.action_to_dae_action(action, cstr_state)
 
     assert isinstance(dae_action, CSTRDAEAction)
     assert dae_action.q == action.q_normalized * cstr_state.non_dae_params.q_max
 
 
 def test_dae_action_to_action(cstr_state: CSTRState) -> None:
-    action_convertor = CSTRActionConvertor()
+    action_converter = CSTRActionConverter()
 
     dae_action = CSTRDAEAction(q=cstr_state.non_dae_params.q_max)
-    action = action_convertor.dae_action_to_action(dae_action, cstr_state)
+    action = action_converter.dae_action_to_action(dae_action, cstr_state)
 
     assert isinstance(action, CSTRAction)
     assert action.q_normalized == +1

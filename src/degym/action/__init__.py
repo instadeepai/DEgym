@@ -13,14 +13,14 @@
 # limitations under the License.
 
 from degym.action.action import Action, DAEAction
-from degym.action.action_convertor import ActionConvertor
+from degym.action.action_converter import ActionConverter
 from degym.action.action_preprocessor import ActionPreprocessor, RawActionType
 from degym.action.action_regulator import ActionRegulator
 
 __all__ = [
     "Action",
     "DAEAction",
-    "ActionConvertor",
+    "ActionConverter",
     "ActionPreprocessor",
     "ActionRegulator",
     "RawActionType",

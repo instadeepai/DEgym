@@ -16,7 +16,7 @@ import pytest
 
 import gymnasium as gym
 from degym_tutorials.cstr_tutorial.action_concrete_classes import (
-    CSTRActionConvertor,
+    CSTRActionConverter,
     CSTRActionPreprocessor,
     CSTRActionRegulator,
 )
@@ -30,7 +30,7 @@ def test_action_preprocessor_does_not_smoke(
     physical_parameters: CSTRPhysicalParameters,
 ) -> None:
     action_preprocessor = CSTRActionPreprocessor(
-        action_convertor=CSTRActionConvertor(), action_regulator=CSTRActionRegulator()
+        action_converter=CSTRActionConverter(), action_regulator=CSTRActionRegulator()
     )
 
     assert isinstance(action_preprocessor.action_space, gym.spaces.Box)
@@ -45,10 +45,10 @@ def test_preprocess_action(
     q_normalized: float,
 ) -> None:
     action_regulator = CSTRActionRegulator()
-    action_convertor = CSTRActionConvertor()
+    action_converter = CSTRActionConverter()
 
     action_preprocessor = CSTRActionPreprocessor(
-        action_convertor=action_convertor, action_regulator=action_regulator
+        action_converter=action_converter, action_regulator=action_regulator
     )
 
     if q_normalized == 1.0:  # legal action

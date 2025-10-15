@@ -114,7 +114,7 @@ By the end of this tutorial all the abstract methods listed below are implemente
 | **NonDAEParameters** | `to_np_array()`, `from_np_array()` | Non-DAE parameters |
 | **Action** | (marker class) | Semantic representation of raw step inputs |
 | **DAEAction** | `to_np_array()`, `from_np_array()` | Control variables in DAE system |
-| **ActionConvertor** | `_dae_action_to_action()`, `_action_to_dae_action()` | Convert between Action and DAE actions |
+| **ActionConverter** | `_dae_action_to_action()`, `_action_to_dae_action()` | Convert between Action and DAE actions |
 | **ActionRegulator** | `is_legal()`, `convert_to_legal_action()` | Enforce action constraints |
 | **ActionPreprocessor** | `action_space` (property), `preprocess_action()` | Process actions before integration |
 | **StatePreprocessor** | `preprocess_state()` | Process state before integration |
@@ -419,12 +419,12 @@ class CSTRAction(Action):
 Note that the `Action` class serves as an intermediate semantic layer that makes control logic more interpretable and debuggable, while `DAEAction` contains the actual control variables used in differential equations.
 
 #### Step 3.3: Defining The Converter Between Action and DAEAction
-DEgym requires a converter between semantic actions and DAE control parameters. In the case of CSTR, this involves simple scaling from normalized to physical units. To write this converter, we inherit from the `ActionConvertor` class and implement the abstract methods:
+DEgym requires a converter between semantic actions and DAE control parameters. In the case of CSTR, this involves simple scaling from normalized to physical units. To write this converter, we inherit from the `ActionConverter` class and implement the abstract methods:
 
 ```python
-class CSTRActionConvertor(ActionConvertor):
+class CSTRActionConverter(ActionConverter):
     """
-    Action convertor for the CSTR.
+    Action converter for the CSTR.
     """
     def _action_to_dae_action(self, action: CSTRAction, state: CSTRState) -> CSTRDAEAction:
         """Multiply the RL action by q_max to denormalize."""
@@ -465,7 +465,7 @@ class CSTRActionRegulator(ActionRegulator):
 #### Step 3.5: Define Action Preprocessor
 `ActionPreprocessor` orchestrates the complete action processing pipeline that transforms raw step inputs into validated DAE control parameters. This is done by:
 1. **Wrapping raw input**: Converting raw step input (arrays, scalars) into semantic Action objects.
-2. **Semantic conversion**: Using `ActionConvertor` to transform Action to DAEAction.
+2. **Semantic conversion**: Using `ActionConverter` to transform Action to DAEAction.
 3. **Constraint enforcement**: Applying `ActionRegulator` to ensure DAEAction compliance.
 
 
@@ -494,7 +494,7 @@ class CSTRActionPreprocessor(ActionPreprocessor):
         semantic_action = CSTRAction(q_normalized=action)
 
         # Step 2: Convert to DAE parameters
-        dae_action = self.action_convertor.action_to_dae_action(semantic_action, state)
+        dae_action = self.action_converter.action_to_dae_action(semantic_action, state)
 
         # Step 3: Apply constraints
         if self.action_regulator.is_legal(dae_action, state):
@@ -886,9 +886,9 @@ def make_cstr_environment(env_config: dict) -> CSTREnvironment:  # pylint: disab
 
     # Prepare preprocessing classes
     action_regulator = CSTRActionRegulator()
-    action_convertor = CSTRActionConvertor()
+    action_converter = CSTRActionConverter()
     action_preprocessor = CSTRActionPreprocessor(
-        action_convertor=action_convertor, action_regulator=action_regulator
+        action_converter=action_converter, action_regulator=action_regulator
     )
     state_preprocessor = CSTRStatePreprocessor()
 

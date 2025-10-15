@@ -16,7 +16,7 @@ import numpy as np
 import pytest
 
 from degym_tutorials.cstr_tutorial.action_concrete_classes import (
-    CSTRActionConvertor,
+    CSTRActionConverter,
     CSTRActionPreprocessor,
     CSTRActionRegulator,
 )
@@ -63,8 +63,8 @@ def state_preprocessor() -> CSTRStatePreprocessor:
 @pytest.fixture(scope="function")
 def action_preprocessor() -> CSTRActionPreprocessor:
     action_regulator = CSTRActionRegulator()
-    action_convertor = CSTRActionConvertor()
-    return CSTRActionPreprocessor(action_convertor=action_convertor, action_regulator=action_regulator)
+    action_converter = CSTRActionConverter()
+    return CSTRActionPreprocessor(action_converter=action_converter, action_regulator=action_regulator)
 
 @pytest.fixture(scope="function")
 def integrator(cstr_system_dynamics: CSTRDiffeqpySystemDynamics) -> DiffeqpyIntegrator:
