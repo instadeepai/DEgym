@@ -104,4 +104,4 @@ additional_dependencies = []
 
 [tool.codespell]
 skip = "*.js,*.html,*.css, *.svg, *.csv"
-ignore-words-list = []
+# ignore-words-list = []
