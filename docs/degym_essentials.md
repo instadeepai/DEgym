@@ -13,7 +13,7 @@
 DEgym is a framework for developing RL environment for systems governed by dynamical systems. It provides a structured approach to implementing environments that model complex systems using Differential-Algebraic Equations (DAEs) or Ordinary Differential Equations (ODEs). Additionally it offers:
 
 * a unified structure across different use cases while remaining flexible, modular, extensible, and maintainable; and
-* a rich context and output format for AI agents to complete the implementation. This is aligned with the new generation of softwares, known as [Software 3.0](https://www.youtube.com/watch?v=LCEmiRjPEtQ), which are designed to be developed by AI-agents.
+* a rich context and output format for AI agents to complete the implementation. This is aligned with the new generation of software, known as [Software 3.0](https://www.youtube.com/watch?v=LCEmiRjPEtQ), which are designed to be developed by AI-agents.
 
 
 ## Understanding the DEgym Architecture
