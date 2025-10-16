@@ -101,3 +101,7 @@ strict_equality = true
 explicit_package_bases = true
 follow_imports = "skip"
 additional_dependencies = []
+
+[tool.codespell]
+skip = "*.js,*.html,*.css, *.svg, *.csv"
+# ignore-words-list = []

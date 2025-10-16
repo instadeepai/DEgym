@@ -38,3 +38,15 @@ repos:
       - id: conventional-pre-commit
         stages:
           - commit-msg
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        name: codespell
+        description: Checks for common misspellings in text files.
+        entry: codespell --toml pyproject.toml
+        language: python
+        types: [text]
+        additional_dependencies:
+          - tomli
