@@ -16,7 +16,7 @@ from typing import TypeAlias
 
 import gymnasium as gym
 import numpy as np
-from degym.action import Action, ActionConvertor, ActionPreprocessor, ActionRegulator, DAEAction
+from degym.action import Action, ActionConverter, ActionPreprocessor, ActionRegulator, DAEAction
 from numpy.typing import NDArray
 from pydantic.dataclasses import dataclass
 
@@ -71,8 +71,8 @@ class CSTRDAEAction(DAEAction):
         return CSTRDAEAction(q=np_array[0])
 
 
-class CSTRActionConvertor(ActionConvertor):
-    """Action convertor for the CSTR problem."""
+class CSTRActionConverter(ActionConverter):
+    """Action converter for the CSTR problem."""
 
     def _action_to_dae_action(self, action: CSTRAction, state: CSTRState) -> CSTRDAEAction:
         """Multiply the RL action by q_max to denormalize."""
@@ -111,10 +111,10 @@ class CSTRActionPreprocessor(ActionPreprocessor):
 
     def __init__(
         self,
-        action_convertor: CSTRActionConvertor,
+        action_converter: CSTRActionConverter,
         action_regulator: CSTRActionRegulator,
     ):
-        self.action_convertor = action_convertor
+        self.action_converter = action_converter
         self.action_regulator = action_regulator
 
     @property
@@ -130,7 +130,7 @@ class CSTRActionPreprocessor(ActionPreprocessor):
         """
         Preprocess an action provided by an agent to the environment.
 
-        Wraps in the CSTRAction class, then uses CSTRActionConvertor to
+        Wraps in the CSTRAction class, then uses CSTRActionConverter to
         convert to a CSTRDAEAction, then uses CSTRActionRegulator to
         preprocess the dae action for applying to environment dynamics.
 
@@ -143,7 +143,7 @@ class CSTRActionPreprocessor(ActionPreprocessor):
         """
         action = CSTRAction(q_normalized=action)
 
-        dae_action: CSTRDAEAction = self.action_convertor.action_to_dae_action(
+        dae_action: CSTRDAEAction = self.action_converter.action_to_dae_action(
             action=action, state=state
         )
 

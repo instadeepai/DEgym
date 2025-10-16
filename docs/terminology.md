@@ -102,7 +102,7 @@ Control parameters as they appear directly in the differential equation system. 
 
 **Usage in DEgym**: DAEActions are passed to the integrator for numerical solving.
 
-### **ActionConvertor**
+### **ActionConverter**
 Transforms semantic Actions into DAEActions and vice versa. Handles scaling, unit conversion, and complex control logic transformations.
 
 **Usage in DEgym**: Called during action preprocessing to bridge semantic and physical representations.
@@ -121,7 +121,7 @@ Orchestrates the complete action processing pipeline from raw inputs to validate
 
 **Pipeline**:
 1. Wrap raw input into semantic Action.
-2. Convert Action to DAEAction using ActionConvertor.
+2. Convert Action to DAEAction using ActionConverter.
 3. Apply constraints using ActionRegulator.
 4. Return validated DAEAction for integration.
 

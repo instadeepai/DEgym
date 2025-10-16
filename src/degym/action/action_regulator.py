@@ -41,7 +41,7 @@ class ActionRegulator(ABC):
 
     Integration with Environment Flow:
         The ActionRegulator is used in the action preprocessing pipeline:
-        1. Agent Action is converted to DAEAction by ActionConvertor
+        1. Agent Action is converted to DAEAction by ActionConverter
         2. ActionRegulator validates and corrects the DAEAction
         3. Corrected DAEAction is used in numerical integration
         4. Regulation prevents unsafe or infeasible system operation

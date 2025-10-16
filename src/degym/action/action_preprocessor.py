@@ -20,7 +20,7 @@ import numpy as np
 from numpy.typing import NDArray
 
 from degym.action.action import DAEAction
-from degym.action.action_convertor import ActionConvertor
+from degym.action.action_converter import ActionConverter
 from degym.action.action_regulator import ActionRegulator
 from degym.state import State
 
@@ -45,12 +45,12 @@ class ActionPreprocessor(ABC):
     Action Processing Pipeline:
         The ActionPreprocessor orchestrates several steps:
         1. Wrap raw action output in Action class structure
-        2. Convert Action to DAEAction using ActionConvertor
+        2. Convert Action to DAEAction using ActionConverter
         3. Apply constraints using ActionRegulator (safety, feasibility)
         4. Return validated DAEAction ready for numerical integration
 
     Component Integration:
-        - action_convertor: Handles transformation between action representations
+        - action_converter: Handles transformation between action representations
         - action_regulator: Enforces constraints and safety limits
         - action_space: Defines bounds and structure for RL algorithms
 
@@ -70,9 +70,9 @@ class ActionPreprocessor(ABC):
     Example:
         ```python
         class CSTRActionPreprocessor(ActionPreprocessor):
-            def __init__(self, convertor: CSTRActionConvertor,
+            def __init__(self, converter: CSTRActionConverter,
                         regulator: CSTRActionRegulator):
-                self.action_convertor = convertor
+                self.action_converter = converter
                 self.action_regulator = regulator
 
             @property
@@ -85,7 +85,7 @@ class ActionPreprocessor(ABC):
                 # Wrap raw action
                 rl_action = CSTRAction(q_normalized=raw_action)
                 # Convert to physical units
-                dae_action = self.action_convertor.action_to_dae_action(rl_action, state)
+                dae_action = self.action_converter.action_to_dae_action(rl_action, state)
                 # Apply constraints
                 safe_action = self.action_regulator.convert_to_legal_action(dae_action, state)
                 return safe_action
@@ -103,7 +103,7 @@ class ActionPreprocessor(ABC):
         - The action_space property is crucial for RL algorithm compatibility
     """
 
-    action_convertor: ActionConvertor
+    action_converter: ActionConverter
     action_regulator: ActionRegulator
 
     @property
@@ -153,7 +153,7 @@ class ActionPreprocessor(ABC):
 
         The preprocessing should follow these steps:
         1. Wrap the raw action in the appropriate Action class structure
-        2. Use ActionConvertor to transform Action to DAEAction (scaling, units)
+        2. Use ActionConverter to transform Action to DAEAction (scaling, units)
         3. Apply ActionRegulator to enforce constraints and ensure safety
         4. Return the validated DAEAction ready for integration
 
@@ -178,7 +178,7 @@ class ActionPreprocessor(ABC):
                 rl_action = CSTRAction(q_normalized=action)
 
                 # Step 2: Convert to physical units
-                dae_action = self.action_convertor.action_to_dae_action(rl_action, state)
+                dae_action = self.action_converter.action_to_dae_action(rl_action, state)
 
                 # Step 3: Apply constraints
                 safe_action = self.action_regulator.convert_to_legal_action(dae_action, state)

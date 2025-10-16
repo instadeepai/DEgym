@@ -40,7 +40,7 @@ class Action(ABC):
         1. Agent produces raw action (e.g., np.array([1, 0.5]))
         2. The raw action is converted to Action by the ActionPreprocessor. The Action
         gives semantic meaning (e.g., heater_on=True, flow_rate=0.5)
-        3. ActionConvertor transforms the Action to DAEAction (e.g., Q_dot=5000 kJ/h,
+        3. ActionConverter transforms the Action to DAEAction (e.g., Q_dot=5000 kJ/h,
         F=2.5 m³/h). These are the actual control parameters that form the DAE.
 
     Common Action Representations:
@@ -57,7 +57,7 @@ class Action(ABC):
     Usage in Environment Pipeline:
         Actions bridge the gap between RL agent outputs and actions as they appear in the DAE:
         1. Raw agent output is wrapped into structured Action
-        2. ActionConvertor transforms Action to DAEAction with physical meaning
+        2. ActionConverter transforms Action to DAEAction with physical meaning
         3. ActionRegulator applies constraints to DAEAction
         4. DAEAction is used in numerical integration
 
@@ -83,7 +83,7 @@ class Action(ABC):
     Note:
         - Actions provide semantic meaning, not physical units or direct control values
         - The Action class is a marker interface with no required methods
-        - Conversion to physical parameters is handled by ActionConvertor implementations
+        - Conversion to physical parameters is handled by ActionConverter implementations
         - Actions make the control logic more interpretable and debuggable
     """
 
@@ -110,7 +110,7 @@ class DAEAction(PydanticBaseModel):
 
     Integration with Environment Flow:
         DAEActions are used in the numerical integration process:
-        1. Agent Action is converted to DAEAction by ActionConvertor
+        1. Agent Action is converted to DAEAction by ActionConverter
         2. ActionRegulator applies constraints to ensure feasible DAEAction
         3. DAEAction is passed to integrator for dynamics computation
         4. DAEAction values appear directly in differential equation formulations
@@ -147,7 +147,7 @@ class DAEAction(PydanticBaseModel):
     Note:
         - DAEActions represent control parameters in physical units and realistic ranges
         - Values should be ready for direct use in differential equation calculations
-        - Conversion between Action and DAEAction is handled by ActionConvertor
+        - Conversion between Action and DAEAction is handled by ActionConverter
         - Constraints and safety limits are enforced by ActionRegulator
     """
 
