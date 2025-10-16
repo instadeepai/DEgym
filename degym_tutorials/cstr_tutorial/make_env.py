@@ -20,7 +20,7 @@ from degym.integrators import (
 )
 
 from degym_tutorials.cstr_tutorial.action_concrete_classes import (
-    CSTRActionConvertor,
+    CSTRActionConverter,
     CSTRActionPreprocessor,
     CSTRActionRegulator,
 )
@@ -65,9 +65,9 @@ def make_cstr_environment(env_config: dict) -> CSTREnvironment:  # pylint: disab
 
     # Prepare preprocessing classes
     action_regulator = CSTRActionRegulator()
-    action_convertor = CSTRActionConvertor()
+    action_converter = CSTRActionConverter()
     action_preprocessor = CSTRActionPreprocessor(
-        action_convertor=action_convertor, action_regulator=action_regulator
+        action_converter=action_converter, action_regulator=action_regulator
     )
     state_preprocessor = CSTRStatePreprocessor()
 

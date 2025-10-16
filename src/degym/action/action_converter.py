@@ -18,12 +18,12 @@ from degym.action.action import Action, DAEAction
 from degym.state import State
 
 
-class ActionConvertor(ABC):
+class ActionConverter(ABC):
     """
     Abstract base class for converting semantic actions (Action) to DAE actions (DAEAction) and
     vice versa.
 
-    The ActionConvertor transforms semantically meaningful Action representations into
+    The ActionConverter transforms semantically meaningful Action representations into
     the DAE actions (DAEActions) that appear directly in the differential
     equation system. It bridges the gap between interpretable action structures and the
     numerical values required by the DAE solver.
@@ -50,9 +50,9 @@ class ActionConvertor(ABC):
         - Complex mappings: control_mode="heating" → multiple coordinated DAE parameters
 
     Integration with Environment Flow:
-        The ActionConvertor operates in the action preprocessing pipeline:
+        The ActionConverter operates in the action preprocessing pipeline:
         1. Raw step input is wrapped into semantic Action
-        2. ActionConvertor transforms Action to DAEAction (DAE actions)
+        2. ActionConverter transforms Action to DAEAction (DAE actions)
         3. ActionRegulator applies constraints to DAEAction
         4. DAEAction parameters are used directly in numerical integration
 
@@ -70,7 +70,7 @@ class ActionConvertor(ABC):
 
     Example:
         ```python
-        class CSTRActionConvertor(ActionConvertor):
+        class CSTRActionConverter(ActionConverter):
             def _action_to_dae_action(self, action: CSTRAction,
                                     state: CSTRState) -> CSTRDAEAction:
                 # Convert semantic action to DAE actions
@@ -94,7 +94,7 @@ class ActionConvertor(ABC):
         ```
 
     Note:
-        - ActionConvertor bridges semantic meaning and DAE actions
+        - ActionConverter bridges semantic meaning and DAE actions
         - Conversions may involve complex logic, not just simple scaling
         - State dependency allows for adaptive and intelligent control transformations
         - Both conversion directions enable comprehensive action space analysis
@@ -126,7 +126,7 @@ class ActionConvertor(ABC):
             Converting semantic heating control to DAE actions:
             ```python
             semantic_action = CSTRAction(heater_on=True, flow_rate_normalized=0.5)
-            dae_params = convertor.action_to_dae_action(semantic_action, current_state)
+            dae_params = converter.action_to_dae_action(semantic_action, current_state)
             # dae_params.q_dot = 5000.0 kJ/h (appears in energy balance equation)
             # dae_params.volumetric_flow = 2.5 m³/h (appears in material balance)
             ```
@@ -201,7 +201,7 @@ class ActionConvertor(ABC):
             Converting DAE actions back to semantic representation:
             ```python
             dae_params = CSTRDAEAction(q_dot=5000.0, volumetric_flow=2.5)
-            semantic_action = convertor.dae_action_to_action(dae_params, current_state)
+            semantic_action = converter.dae_action_to_action(dae_params, current_state)
             # semantic_action.heater_on = True (since q_dot > 0)
             # semantic_action.flow_rate_normalized = 0.5 (2.5 / 5.0 max flow)
             ```
